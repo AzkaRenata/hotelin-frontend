@@ -11,6 +11,10 @@ import {
   Route
 } from "react-router-dom";
 import AlertComponent from './components/AlertComponent/AlertComponent';  
+import React from 'react';
+import KamarDetails from './KamarDetails';
+// import logo from './logo.svg';
+// import './App.css';
 
 function App() {
   const [title, updateTitle] = useState(null);
@@ -63,6 +67,25 @@ function App() {
     </div>
   </div>
   </Router>
+    
+    // <div className="App">
+    //   <header className="App-header">
+    //     <img src={logo} className="App-logo" alt="logo" />
+    //     <p>
+    //       Edit <code>src/App.js</code> and save to reload.
+    //     </p>
+    //     <a
+    //       className="App-link"
+    //       href="https://reactjs.org"
+    //       target="_blank"
+    //       rel="noopener noreferrer"
+    //     >
+    //       Learn React
+    //     </a>
+    //   </header>
+    // </div>
+
+    <KamarDetails />
   );
 }
 
