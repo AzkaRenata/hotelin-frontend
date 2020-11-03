@@ -3,7 +3,6 @@ import './sidebar.css';
 
 function Sidebar() {
   return (
-
 <div class="wrapper">
     <div class="sidebar">
         <div class="text-center padding">
