@@ -1,5 +1,5 @@
 import React from 'react';
-import KamarDetails from './KamarDetails';
+import Profile from './Profile';
 // import logo from './logo.svg';
 // import './App.css';
 
@@ -22,7 +22,7 @@ function App() {
     //   </header>
     // </div>
 
-    <KamarDetails />
+    <Profile />
   );
 }
 
