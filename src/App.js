@@ -1,3 +1,6 @@
+
+import React from 'react';
+import Profile from './Profile';
 import React, {useState} from 'react';
 //import './App.css';
 import Header from './components/Header/Header';
@@ -13,6 +16,7 @@ import {
 } from "react-router-dom";
 import AlertComponent from './components/AlertComponent/AlertComponent';  
 import KamarDetails from './KamarDetails';
+
 // import logo from './logo.svg';
 // import './App.css';
 
@@ -85,6 +89,8 @@ function App() {
     //     </a>
     //   </header>
     // </div>
+    
+    <Profile />
   );
 }
 
