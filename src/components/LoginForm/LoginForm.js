@@ -97,7 +97,7 @@ function LoginForm(props) {
     //     </div>
     // )
     return(
-
+          <div>
           <form className="login100-form validate-form">
             <div className="p-b-59 w-full text-center">
               <span className="login100-form-title text-blue">
@@ -135,7 +135,12 @@ function LoginForm(props) {
                 </button>
               </div>
             </div>
+            <div className="alert alert-success mt-2" style={{display: state.successMessage ? 'block' : 'none' }} role="alert">
+                {state.successMessage}
+          </div>
           </form>
+          <p className="text-center fs-18">Belum Punya Akun ? <a className="fs-18" href="javascript:void(0)" onClick={() => redirectToRegister()}>Daftar</a></p>
+        </div>
       )
 }
 
