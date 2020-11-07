@@ -124,6 +124,7 @@ function RegistrationForm(props) {
     }
 
     return(
+    <div>
     <form className="login100-form validate-form">
         <div className="p-b-59 w-full text-center">
             <div className="dis-inline text-left">
@@ -195,7 +196,7 @@ function RegistrationForm(props) {
         </div>
 
         <div className="wrap-input100 validate-input" data-validate="Address is required">
-        <input className="input100" type="text" name="address" placeholder="Name..."
+        <input className="input100" type="text" name="address" placeholder="Address..."
         id="address" value={state.address} onChange={handleChange} />
         <span className="focus-input100"></span>
         </div>
@@ -215,7 +216,8 @@ function RegistrationForm(props) {
 
         </div>
     </form>
+    <p className="text-center fs-18">Sudah Punya Akun ? <a className="fs-18" href="javascript:void(0)" onClick={() => redirectToLogin()}>Masuk</a></p>
+    </div>
     )
 }
-
 export default withRouter(RegistrationForm);

@@ -1,10 +1,9 @@
 import React, {useState} from 'react';
-//import './App.css';
+import './App.css';
 import Header from './components/Header/Header';
 import LoginForm from './components/LoginForm/LoginForm';
 import RegistrationForm from './components/RegistrationForm/RegistrationForm';
 import Home from './components/Home/Home';
-import Dashboard from './components/Dashboard/Dashboard';
 import PrivateRoute from './utils/PrivateRoute';
 import {
   BrowserRouter as Router,
@@ -12,11 +11,8 @@ import {
   Route
 } from "react-router-dom";
 import AlertComponent from './components/AlertComponent/AlertComponent';  
-import KamarDetails from './KamarDetails';
-// import logo from './logo.svg';
-// import './App.css';
 
-function App() {
+function Login() {
   const [title, updateTitle] = useState(null);
   const [errorMessage, updateErrorMessage] = useState(null);
   return (
@@ -43,7 +39,7 @@ function App() {
     // </div>
     // </Router>
     <Router>
-    <div className="App">
+    <div className="Login">
       <div className="limiter">
         <div className="container-login100">
           <div className="login100-more"></div>
@@ -59,33 +55,15 @@ function App() {
                 <LoginForm showError={updateErrorMessage} updateTitle={updateTitle}/>
               </Route>
               <PrivateRoute path="/home">
-                <Dashboard/>
+                <Home/>
               </PrivateRoute>
             </Switch>
-            <AlertComponent errorMessage={errorMessage} hideError={updateErrorMessage}/>
           </div>
         </div>
     </div>
   </div>
   </Router>
-    
-    // <div className="App">
-    //   <header className="App-header">
-    //     <img src={logo} className="App-logo" alt="logo" />
-    //     <p>
-    //       Edit <code>src/App.js</code> and save to reload.
-    //     </p>
-    //     <a
-    //       className="App-link"
-    //       href="https://reactjs.org"
-    //       target="_blank"
-    //       rel="noopener noreferrer"
-    //     >
-    //       Learn React
-    //     </a>
-    //   </header>
-    // </div>
   );
 }
 
-export default App;
+export default Login;
