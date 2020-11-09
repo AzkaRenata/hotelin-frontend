@@ -1,20 +1,20 @@
 import React from 'react';
-import './detailpemesanan.css';
+import './pemesanan.css';
 
-function DetailPemesanan() {
+function Pemesanan() {
   return (
 
 <div class="wrapper">
   <div class="main-content-left">
     <b><div class="header">Data Pemesanan</div></b>
-    <div class="card body mb-3">
-                <div class="card-body main_content">
+    <div class="border body mb-3">
+                <div class="border-body main_content">
                   <div class="text-center">
                     <img src="profile.jpg" class="img" alt="Profile Image" ></img>
                         <b>
-                        <p class="card-title">Olivia</p>
-                        <p class="card-title">olivia@gmail.com </p>
-                        <p class="card-title">081234567890 </p>
+                        <p class="border-title">Olivia</p>
+                        <p class="border-title">olivia@gmail.com </p>
+                        <p class="border-title">081234567890 </p>
                         </b>
                   </div>
                 </div>
@@ -23,9 +23,9 @@ function DetailPemesanan() {
 
   <div class=" main-content-right"> 
         <div class="info">
-            <div class="card body mb-3">
-                <div class="card-body main_content">
-                  <div class=" card-title">
+            <div class="border body mb-3">
+                <div class="border-body main_content">
+                  <div class=" border-title">
                   <div class="detail">
                     <table>
                         <tr>
@@ -62,4 +62,4 @@ function DetailPemesanan() {
 </div>
  );
 }
-export default DetailPemesanan;
+export default Pemesanan;
