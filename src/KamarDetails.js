@@ -5,36 +5,22 @@ export default function KamarDetails(){
     return(
         <div className="KamarDetails.js">
             <header className="KamarDetails-header">
-                <h1>Detail Kamar</h1>
-
+                <div className="JudulEdit">
+                    <h1>Detail Kamar</h1>
+                    <button className="EditButton">Edit</button>
+                </div>
+                
                 <div className="KamarDetails-detail">
                     <img src="black.jpg" id="CV"></img>
-                    {/* <div className="galleryItem">
-                        <div class="gallery">
-                            <a target="_blank" href="black.jpg">
-                                <img src="black.jpg"></img>
-                            </a>
-                        </div>
-                        <div class="gallery">
-                            <a target="_blank" href="black.jpg">
-                                <img src="black.jpg"></img>
-                            </a>
-                        </div>
-                        <div class="gallery">
-                            <a target="_blank" href="black.jpg">
-                                <img src="black.jpg"></img>
-                            </a>
-                        </div>
-                        <div class="gallery">
-                            <a target="_blank" href="black.jpg">
-                                <img src="black.jpg"></img>
-                            </a>
-                        </div>
-                    </div> */}
                 </div>
 
                 <div className="KamarDetails-detail">
                     <table>
+                        <tr>
+                            <td>
+                                <p className="NamaKamar">Deluxe</p>
+                            </td>
+                        </tr>
                         <tr>
                             <td>Harga</td>
                             <td>RP. 1.626.804</td>
@@ -53,7 +39,7 @@ export default function KamarDetails(){
                         </tr>
                     </table>
                 </div>
-                <button className="EditButton">Edit</button>
+                
             </header>
         </div>
     )
