@@ -41,10 +41,10 @@ function Profile() {
                 <button type="button" class="btn button">Edit Profile</button>
                 </b>
             </div>
-            <div class="card body mb-3">
+            <div class="border body mb-3">
                 <div class="card-body main_content">
                     <b><p class="card-title title">Eastin Ashta Resort Canggu</p></b>
-                    <i class="fas fa-map-marker-alt card-text"> Canggu, Bali</i><br></br>
+                    <i class="fas fa-map-marker-alt card-text"> <a> Canggu, Bali </a></i><br></br>
                     <i class="fas fa-star color-icon"></i>
                     <i class="fas fa-star color-icon"></i>
                     <i class="fas fa-star color-icon"></i>
