@@ -45,6 +45,7 @@ function Profile() {
                 <div class="card-body main_content">
                     <b><p class="card-title title">Eastin Ashta Resort Canggu</p></b>
                     <i class="fas fa-map-marker-alt card-text"> Canggu, Bali</i><br></br>
+
                     <i class="fas fa-star color-icon"></i>
                     <i class="fas fa-star color-icon"></i>
                     <i class="fas fa-star color-icon"></i>

@@ -1,6 +1,5 @@
 
 import React, { Component, useState } from 'react';
-//import './App.css';
 import Profile from './Profile';
 import Header from './components/Header/Header';
 import LoginForm from './components/LoginForm/LoginForm';
@@ -105,7 +104,7 @@ function App() {
     //   </header>
     // </div>
     
-    // <Profile />
+    <Profile />
   );
 }
 
