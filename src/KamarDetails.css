@@ -1,3 +1,17 @@
+.JudulEdit{
+    width: 1050px;
+    max-width: 1050px;
+    height: 50px;
+    max-height: 50px;
+    padding: 0px;
+    background-color: white;
+    /* border: 1px solid black; */
+    margin-top: 50px;
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-bottom: 50px;
+}
+
 .KamarDetails-header{
     min-height: 100vh;
     margin-left: 10px;
@@ -6,17 +20,37 @@
 }
 
 h1{
-    margin: 50px;
+    margin-left: 25px;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 650px;
     padding: 0px;
+    display: inline;
+}
+
+.EditButton{
+    background-color: cadetblue;
+    color: white;
+    height:40px;
+    width: 100px;
+    border: none;    
+    border-radius: 7px;
+    display: inline;
+    cursor: pointer;
 }
 
 .KamarDetails-detail{
     width: 500px;
     max-width: 500px;
-    height: 500px;
+    height: 300px;
     max-height: 100vh;
     background-color: white;
-    /* border: 1px solid black; */
+    border: 1px none grey;
+    padding-left: 1px;
+    padding-right: 1px;
+    box-shadow: 0px 0px 10px #888888;
+    border-radius: 10px;
+
     display: inline-block;
     margin-left: 25px;
     margin-right: 25px;
@@ -25,10 +59,10 @@ h1{
 img{
     display: block;
     height: 300px;
-    width: 450px;
+    width: 500px;
     border-radius: 10px;
-    margin-left: auto;
-    margin-right: auto;
+    /* margin-left: auto;
+    margin-right: auto; */
 }
 
 .galleryItem{
@@ -80,15 +114,11 @@ p{
     margin: 0px;
 }
 
+.NamaKamar{
+    color: cadetblue;
+    font-size: 40px;
+    font-weight: bold;
+}
+
 /*  */
 
-.EditButton{
-    background-color: cadetblue;
-    color: white;
-    display: inline-block;
-    height: 25px;
-    width: 100px;
-    border: none;    border-radius: 10px;
-    margin-right: 25px;
-    cursor: pointer;
-}
