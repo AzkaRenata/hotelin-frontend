@@ -1,17 +1,16 @@
 import React, { PureComponent,useState } from 'react'
 import axios from 'axios';
 import ReactPaginate from 'react-paginate';
-import "./Histori.css";
+import "./DataKamar.css";
 import eyecloseupimg from './eye-closeup.png';
 import deleteimg from './delete.png';
-// import pencilimg from './pencil.png';
+import pencilimg from './pencil.png';
 import {API_BASE_URL, ACCESS_TOKEN_NAME} from '../../constants/apiContants';
 import { withRouter } from "react-router-dom";
 
 
 
-
-export class Histori extends PureComponent {
+export class DataKamar extends PureComponent {
 
     constructor(props) {
         super(props)
@@ -57,7 +56,7 @@ export class Histori extends PureComponent {
     }
     getData() {
         axios
-            .get(API_BASE_URL+'/user/Histori', { headers: { 'token': localStorage.getItem(ACCESS_TOKEN_NAME) }})
+            .get(API_BASE_URL+'/user/datakamar', { headers: { 'token': localStorage.getItem(ACCESS_TOKEN_NAME) }})
             // .get('https://jsonplaceholder.typicode.com/comments')
             .then(res => {
                 var tdata = res.data;
@@ -82,17 +81,18 @@ export class Histori extends PureComponent {
                     <br />
                     <div className="row">
                         <div className="col-0">
-                        <h1>&nbsp;Histori</h1>
+                        <h1>&nbsp;Data Kamar</h1>
                         </div>
-                        
+                        <div className="col">
+                            <button type="button" class="button float-right">Edit Profile</button>
+                        </div>
                     </div>
                     <table className="table">
                         <thead className="table-active">
-                        <th scope="col">Nama Pemesan</th>
-                          <th scope="col">Tanggal Menginap</th>
-                          <th scope="col">Tipe Kamar</th>
-                          <th scope="col">Harga</th>
-                          <th scope="col">Action</th>
+                            <th scope="col">Tipe Kamar</th>
+                            <th scope="col">Harga</th>
+                            <th scope="col">Jumlah Kamar</th>
+                            <th scope="col">Action</th>
 
                         </thead>
                         <tbody>
@@ -102,8 +102,7 @@ export class Histori extends PureComponent {
                                         <td>{tdata.id}</td>
                                         <td>{tdata.name}</td>
                                         <td>{tdata.email}</td>
-                                        <td>{tdata.email}</td>
-                                        <td><a href="#"><img src={eyecloseupimg}/></a>&nbsp;<a href="#"><img src={deleteimg}/></a></td>
+                                        <td><a href="#"><img src={eyecloseupimg}/></a>&nbsp;<a href="#"><img src={pencilimg}/></a>&nbsp;<a href="#"><img src={deleteimg}/></a></td>
                                     </tr>
 
                                 ))
@@ -130,4 +129,4 @@ export class Histori extends PureComponent {
     }
 }
 
-export default withRouter(Histori);
+export default withRouter(DataKamar);

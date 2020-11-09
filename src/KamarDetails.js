@@ -5,6 +5,7 @@ export default function KamarDetails(){
     return(
         <div className="KamarDetails.js">
             <header className="KamarDetails-header">
+                <h1>Detail Kamar</h1>
                 <div className="JudulEdit">
                     <h1>Detail Kamar</h1>
                     <button className="EditButton">Edit</button>
@@ -39,7 +40,7 @@ export default function KamarDetails(){
                         </tr>
                     </table>
                 </div>
-                
+                <button className="EditButton">Edit</button>
             </header>
         </div>
     )

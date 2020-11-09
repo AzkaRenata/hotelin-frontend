@@ -15,15 +15,14 @@
     position: relative;
 }
 
-.border{
+
+.card{
   box-shadow: 0px 2px 15px rgba(0,0,0,0.2);
   margin-top: 32px;
   max-width: 500px;
   height: 500px;
   width: 500px;
   max-height: 100vh;
-  border-radius: 10px;
-  background-color:#fff;
 }
 
 .wrapper .main-content-left{
@@ -41,7 +40,7 @@
 
 .wrapper .main_content {
   padding: 20px;
- /* background: #fff;*/
+  background: #fff;
   color: #717171;
 }
 

@@ -20,10 +20,7 @@
 }
 
 h1{
-    margin-left: 25px;
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-right: 650px;
+    margin: 50px;
     padding: 0px;
     display: inline;
 }
@@ -42,7 +39,7 @@ h1{
 .KamarDetails-detail{
     width: 500px;
     max-width: 500px;
-    height: 300px;
+    height: 500px;
     max-height: 100vh;
     background-color: white;
     border: 1px none grey;
@@ -50,7 +47,6 @@ h1{
     padding-right: 1px;
     box-shadow: 0px 0px 10px #888888;
     border-radius: 10px;
-
     display: inline-block;
     margin-left: 25px;
     margin-right: 25px;
@@ -59,10 +55,10 @@ h1{
 img{
     display: block;
     height: 300px;
-    width: 500px;
+    width: 450px;
     border-radius: 10px;
-    /* margin-left: auto;
-    margin-right: auto; */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .galleryItem{
@@ -114,6 +110,134 @@ p{
     margin: 0px;
 }
 
+/*  */
+
+.EditButton{
+    background-color: cadetblue;
+    color: white;
+    display: inline-block;
+    height: 25px;
+    width: 100px;
+    border: none;    border-radius: 10px;
+    margin-right: 25px;
+    cursor: pointer;
+}
+=======.JudulEdit{
+    width: 1050px;
+    max-width: 1050px;
+    height: 50px;
+    max-height: 50px;
+    padding: 0px;
+    background-color: white;
+    /* border: 1px solid black; */
+    margin-top: 50px;
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-bottom: 50px;
+}
+
+.KamarDetails-header{
+    min-height: 100vh;
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: white;
+}
+
+h1{
+    margin: 50px;
+    padding: 0px;
+    display: inline;
+}
+
+.EditButton{
+    background-color: cadetblue;
+    color: white;
+    display: inline-block;
+    height: 25px;
+    width: 100px;
+    border: none;    border-radius: 10px;
+    margin-right: 25px;
+    cursor: pointer;
+}
+
+.KamarDetails-detail{
+    width: 500px;
+    max-width: 500px;
+    height: 500px;
+    max-height: 100vh;
+    background-color: white;
+    border: 1px none grey;
+    padding-left: 1px;
+    padding-right: 1px;
+    box-shadow: 0px 0px 10px #888888;
+    border-radius: 10px;
+    display: inline-block;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+/*  */
+img{
+    display: block;
+    height: 300px;
+    width: 450px;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.galleryItem{
+    /* border: 1px solid black; */
+    width: 450px;
+    height: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 25px;
+    margin-bottom: 25px;
+
+}
+
+div.gallery {
+    float: left;
+    margin-top: 15px;    
+}
+  
+/* div.gallery:hover {
+
+} */
+  
+div.gallery img {
+    width: 100px;
+    height: 100px;
+    /* margin-left: 5px; */
+    margin-right: 5px;
+}
+/*  */
+table {
+    /* border: 1px solid black; */
+    border: none;
+    width: 450px;
+    max-width: 450px;
+    max-height: 500px;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+tr , td{
+    vertical-align: top;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+p{
+    margin: 0px;
+}
+
+.NamaKamar{
+    color: cadetblue;
+    font-size: 40px;
+    font-weight: bold;
+}
+
 .NamaKamar{
     color: cadetblue;
     font-size: 40px;
@@ -121,4 +245,3 @@ p{
 }
 
 /*  */
-
