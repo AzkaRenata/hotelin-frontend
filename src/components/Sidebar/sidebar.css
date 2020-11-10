@@ -85,3 +85,11 @@
   background-color: #fff !important;
   color: #707070 !important;
 }
+
+.page a{
+  color: #707070 !important;
+}
+
+a:active {
+  background-color: #fff !important;
+}

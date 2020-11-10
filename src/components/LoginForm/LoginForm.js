@@ -48,7 +48,7 @@ function LoginForm(props) {
     }
     const redirectToHome = () => {
         props.updateTitle('Home')
-        props.history.push('/home');
+        props.history.push('/home/profile');
     }
     const redirectToRegister = () => {
         props.history.push('/register'); 
@@ -97,45 +97,55 @@ function LoginForm(props) {
     //     </div>
     // )
     return(
+      <div className="limiter">
+        <div className="container-login100">
+          <div className="login100-more"></div>
+          <div className="wrap-login100 p-l-50 p-r-50 p-t-72 p-b-50">
+            <form className="login100-form validate-form">
+              <div className="p-b-59 w-full text-center">
+                <span className="login100-form-title text-blue">
+                  LOGIN
+                </span>
+                <div className="dis-inline text-center">
+                    <span className="login100-form-title">
+                    &nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;
+                    </span>  
+                </div>
+                <a href="javascript:void(0)" className="login100-form-title" onClick={() => redirectToRegister()} >
+                REGISTER
+                </a>
+                
+                
+            </div>
 
-          <form className="login100-form validate-form">
-            <div className="p-b-59 w-full text-center">
-              <span className="login100-form-title text-blue">
-                LOGIN
-              </span>
-              <div className="dis-inline text-center">
-                  <span className="login100-form-title">
-                  &nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;
-                  </span>  
+              <div className="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+                <input className="input100" type="text" name="email" placeholder="Email addess..." 
+                id="email" value={state.email} onChange={handleChange}/>
+                <span className="focus-input100"></span>
               </div>
-              <a href="javascript:void(0)" className="login100-form-title" onClick={() => redirectToRegister()} >
-              REGISTER
-              </a>
-              
-              
+
+              <div className="wrap-input100 validate-input" data-validate = "Password is required">
+                <input className="input100" type="password" name="pass" placeholder="Password"
+                id="password" value={state.password} onChange={handleChange} />
+                <span className="focus-input100"></span>
+              </div>
+
+              <div className="container-login100-form-btn m-t-59">
+                <div className="wrap-login100-form-btn">
+                  <div className="login100-form-bgbtn"></div>
+                  <button className="login100-form-btn w-full" onClick={handleSubmitClick}>
+                    Lanjut
+                  </button>
+                </div>
+              </div>
+              <div className="alert alert-success mt-2" style={{display: state.successMessage ? 'block' : 'none' }} role="alert">
+                  {state.successMessage}
+            </div>
+            </form>
+            <p className="text-center fs-18">Belum Punya Akun ? <a className="fs-18" href="javascript:void(0)" onClick={() => redirectToRegister()}>Daftar</a></p>
           </div>
-
-            <div className="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-              <input className="input100" type="text" name="email" placeholder="Email addess..." 
-              id="email" value={state.email} onChange={handleChange}/>
-              <span className="focus-input100"></span>
-            </div>
-
-            <div className="wrap-input100 validate-input" data-validate = "Password is required">
-              <input className="input100" type="password" name="pass" placeholder="Password"
-              id="password" value={state.password} onChange={handleChange} />
-              <span className="focus-input100"></span>
-            </div>
-
-            <div className="container-login100-form-btn m-t-59">
-              <div className="wrap-login100-form-btn">
-                <div className="login100-form-bgbtn"></div>
-                <button className="login100-form-btn w-full" onClick={handleSubmitClick}>
-                  Lanjut
-                </button>
-              </div>
-            </div>
-          </form>
+        </div>
+      </div>
       )
 }
 
