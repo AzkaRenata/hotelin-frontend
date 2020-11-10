@@ -12,7 +12,6 @@ export function DetailPemesanan(){
 
             <div className="row">
               <div className="col">
-
                 <h1>Data Kamar</h1></div>
                 <button type="button" className="button">Edit Profile</button>
               </div>
@@ -32,8 +31,12 @@ export function DetailPemesanan(){
                     <td>Mark</td>
                     <td>Otto</td>
                     {/* <!-- <td>@mdo</td> --> */}
-                    <td><a href="#"><img src="eye-closeup.png"></a>&nbsp;<a href="#"><img src="pencil.png">&nbsp;<a href="#"><img src="delete.png"></a></td>
-                  <tr/>
+                    <td>
+                      <a href="#"><img src="eye-closeup.png" /></a>&nbsp;
+                      <a href="#"><img src="pencil.png" /></a>&nbsp;
+                      <a href="#"><img src="delete.png" /></a>
+                    </td>
+                  </tr>
                   <tr>
                     <th scope="row">2</th>
                     <td>Jacob</td>
@@ -46,11 +49,11 @@ export function DetailPemesanan(){
                     <td>Larry</td>
                     <td>the Bird</td>
                     {/* <!-- <td>@twitter</td> --> */}
-                    <td><a href="#"><img src="eye-closeup.png"/></a>&nbsp;<a href="#"><img src="pencil.png"/>&nbsp;</a><a href="#"/><img src="delete.png"/><a/></td>
+                    <td><a href="#"><img src="eye-closeup.png"/></a>&nbsp;<a href="#"><img src="pencil.png"/></a>&nbsp;<a href="#"><img src="delete.png"/></a></td>
                   </tr>
-                <tbody/>
-              <table/>
-            <div/>
-          <div/>
+                </tbody>
+              </table>
+            </div>
+          </div>
     )    
 }

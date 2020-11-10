@@ -6,11 +6,11 @@ export default function Pembatalan(){
         <div className="row">
             <div className="col-sm-2"></div>
             <div className="col-sm-8">
-                </br>
-                </br>
-                </br>
-                <h1>Data Pembatalan</h1>
-                </br>
+                <br />
+                <br />
+                <br />
+                <h1>Data Pembatalan</h1><img src="delete.png"></img>
+                <br />
                 <table className="table">
                     <thead>
                         <tr>
@@ -27,21 +27,21 @@ export default function Pembatalan(){
                       <td>Mark</td>
                       <td>Otto</td>
                       <td>@mdo</td>
-                      <td><a href="#"><img src="eye-closeup.png"></a>&nbsp;&nbsp;&nbsp;<a href="#"><img src="delete.png"></a></td>
+                      <td><a href="#"><img src="eye-closeup.png" /></a>&nbsp;&nbsp;&nbsp;<a href="#"><img src="delete.png" /></a></td>
                     </tr>
                     <tr>
                       <th scope="row">2</th>
                       <td>Jacob</td>
                       <td>Thornton</td>
                       <td>@fat</td>
-                      <td><a href="#"><img src="eye-closeup.png"></a>&nbsp;&nbsp;&nbsp;<a href="#"><img src="delete.png"></a></td>
+                      <td><a href="#"><img src="eye-closeup.png" /></a>&nbsp;&nbsp;&nbsp;<a href="#"><img src="delete.png" /></a></td>
                     </tr>
                     <tr>
                       <th scope="row">3</th>
                       <td>Larry</td>
                       <td>the Bird</td>
                       <td>@twitter</td>
-                      <td><a href="#"><img src="eye-closeup.png"></a>&nbsp;&nbsp;&nbsp;<a href="#"><img src="delete.png"></a></td>
+                      <td><a href="#"><img src="eye-closeup.png" /></a>&nbsp;&nbsp;&nbsp;<a href="#"><img src="delete.png" /></a></td>
                     </tr>
                     </tbody>
                 </table>
