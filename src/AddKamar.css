@@ -33,7 +33,7 @@
   cursor: pointer;
 }
 
-.create-room-btn{
+button.create-room-btn{
   background-color: cadetblue;
   color: white;
   display: inline-block;
@@ -50,4 +50,3 @@
   width: 60%;
   padding: 10px;
 }
-
