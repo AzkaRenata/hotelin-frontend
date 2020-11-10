@@ -36,6 +36,17 @@
 .create-hotel-btn{
   background-color: cadetblue;
   color: white;
+  height:40px;
+  width: 100px;
+  border: none;    
+  border-radius: 7px;
+  display: inline;
+  cursor: pointer;
+}
+
+button.create-hotel-btn{
+  background-color: cadetblue;
+  color: white;
   display: inline-block;
   height: 40px;
   width: 150px;
