@@ -40,7 +40,7 @@ function Sidebar(props) {
         <ul>
             <b>
                 <li className={activeLink === "link1" ? "page" : ""}><a href="javascript:void(0)" onClick={() => redirectToProfile()}><i class=""></i>Profile</a></li>
-                <li className={activeLink === "link2" ? "page" : ""}><a href="javascript:void(0)" onClick={() => redirectToDetail()}><i class=""></i>Detail</a></li>
+                <li className={activeLink === "link2" ? "page" : ""}><a href="javascript:void(0)" onClick={() => redirectToDetail()}><i class=""></i>List Kamar</a></li>
                 <li className={activeLink === "link3" ? "page" : ""}><a href="javascript:void(0)" onClick={() => redirectToBooking()}><i class=""></i>Pemesanan</a></li>
                 <li className={activeLink === "link4" ? "page" : ""}><a href="javascript:void(0)" onClick={() => redirectToVisitor()}><i class=""></i>Pengunjung</a></li>
                 <li className={activeLink === "link5" ? "page" : ""}><a href="javascript:void(0)" onClick={() => redirectToCancelBooking()}><i class=""></i>Pembatalan</a></li>
