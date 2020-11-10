@@ -4,8 +4,10 @@ import LoginForm from './components/LoginForm/LoginForm';
 import RegistrationForm from './components/RegistrationForm/RegistrationForm';
 import Sidebar from './components/Sidebar/Sidebar';
 import Pemesanan from './components/Pemesanan/Pemesanan';
+import DataKamar from './components/DataKamar/DataKamar';
 import Pembatalan from './components/Pembatalan/Pembatalan';
 import Profile from './components/Profile/Profile';
+import Histori from './components/Histori/Histori';
 import PrivateRoute from './utils/PrivateRoute';
 import {
   BrowserRouter as Router,
@@ -62,14 +64,14 @@ function App() {
               <PrivateRoute path="/home/profile">
                 <Profile />
               </PrivateRoute>
-              <PrivateRoute path="/home/detail">
-                {/* <Detail /> */}
+              <PrivateRoute path="/home/kamar">
+                <DataKamar />
               </PrivateRoute>
-              <PrivateRoute path="/home/booking">
+              <PrivateRoute path="/home/current-booking">
                 <Pemesanan />
               </PrivateRoute>
-              <PrivateRoute path="/home/visitor">
-                {/* <Visitor /> */}
+              <PrivateRoute path="/home/history-booking">
+                <Histori />
               </PrivateRoute>
               <PrivateRoute path="/home/cancel-booking">
                 <Pembatalan />

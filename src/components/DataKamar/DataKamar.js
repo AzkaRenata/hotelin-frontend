@@ -74,8 +74,8 @@ export class DataKamar extends PureComponent {
     render() {
         return (
             <div className="row">
-                <div className="col-sm-2" />
-                <div className="col">
+                <div className="col-sm-1" />
+                <div className="col-sm-10">
                     <br />
                     <br />
                     <br />
@@ -124,6 +124,7 @@ export class DataKamar extends PureComponent {
                         subContainerClassName={"pages pagination"}
                         activeClassName={"active"} />
                 </div>
+                <div className="col-sm-1" />
             </div>
         )
     }
