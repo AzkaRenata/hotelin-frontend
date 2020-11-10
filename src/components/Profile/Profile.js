@@ -8,26 +8,26 @@ function Profile() {
     <div class=" main_content_left">
         <b><div class="header">Profile Hotel</div></b> 
         <div className="KamarDetails-detail">
-                    <img src="hotel1.jpg" id="CV"></img>
+                    <img src="../../hotel1.jpg" id="CV"></img>
                      <div className="galleryItem">
                         <div class="gallery">
                             <a target="_blank" href="living room.jpg">
-                                <img src="living room.jpg"></img>
+                                <img src="../../living room.jpg"></img>
                             </a>
                         </div>
                         <div class="gallery">
                             <a target="_blank" href="black.jpg">
-                                <img src="living room.jpg"></img>
+                                <img src="../../living room.jpg"></img>
                             </a>
                         </div>
                         <div class="gallery">
                             <a target="_blank" href="black.jpg">
-                                <img src="living room.jpg"></img>
+                                <img src="../../living room.jpg"></img>
                             </a>
                         </div>
                         <div class="gallery">
                             <a target="_blank" href="black.jpg">
-                                <img src="living room.jpg"></img>
+                                <img src="../../living room.jpg"></img>
                             </a>
                         </div>
                     </div> 
