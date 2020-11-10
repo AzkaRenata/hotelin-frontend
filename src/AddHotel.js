@@ -1,11 +1,11 @@
-import './AddKamar.css';
+import './AddHotel.css';
 
 import React, {useCallback} from 'react'
 import {useDropzone} from 'react-dropzone'
 import {Button, Form, Label, Input, FormGroup, Container, Row, Col} from 'reactstrap';
 
 
-function AddKamar() {
+function AddHotel() {
   const onDrop = useCallback(acceptedFiles => {
     // Do something with the files
     let formData = new FormData()
@@ -15,31 +15,28 @@ function AddKamar() {
   const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop})
 
   return (
-    <div className="create-room">
+    <div className="create-hotel">
     <Container>
-      <h2>Add Data Kamar</h2>
+      <h2>Add Data Hotel</h2>
       <Row>
       <Col>
-      <div className="create-room-form">
+      <div className="create-hotel-form">
           <Form>
             <FormGroup>
-              <Input type="text" placeholder="Fasilitas Kamar"/>
+              <Input type="text" placeholder="Hotel Name"/>
             </FormGroup>
             <FormGroup>
-              <Input type="text" placeholder="Tipe Kamar"/>
+              <Input type="text" placeholder="Location"/>
             </FormGroup>
             <FormGroup>
-              <Input type="text" placeholder="Jumlah Kamar"/>
-            </FormGroup>
-            <FormGroup>
-              <Input type="text" placeholder="Harga Kamar"/>
+              <Input type="text" placeholder="Description"/>
             </FormGroup>
           </Form>
       </div>
-      <Button className="create-room-btn">Add Data</Button>
+      <Button className="create-hotel-btn">Add Data</Button>
       </Col>
       <Col>
-      <div {...getRootProps()} className="create-room-dragndrop">
+      <div {...getRootProps()} className="create-hotel-dragndrop">
         <input {...getInputProps()} />
         {
         isDragActive ?
@@ -54,4 +51,4 @@ function AddKamar() {
   );
 }
 
-export default AddKamar;
+export default AddHotel;
