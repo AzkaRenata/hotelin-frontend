@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import './App.css';
 import LoginForm from './components/LoginForm/LoginForm';
 import RegistrationForm from './components/RegistrationForm/RegistrationForm';
+import AddHotel from './components/Hotel/AddHotel';
 import Sidebar from './components/Sidebar/Sidebar';
 import Pemesanan from './components/Pemesanan/Pemesanan';
 import DataKamar from './components/DataKamar/DataKamar';
@@ -57,15 +58,24 @@ function App() {
           </Route>
         
           <div>
+            <PrivateRoute path="/hotel/add" exact={true}>
+                <AddHotel showError={updateErrorMessage} updateTitle={updateTitle} />
+            </PrivateRoute>
             <PrivateRoute path="/home">
               <Sidebar/>
             </PrivateRoute>
             <div className="home-content">
-              <PrivateRoute path="/home/profile">
+              <PrivateRoute path="/home/hotel" exact={true}>
                 <Profile />
               </PrivateRoute>
-              <PrivateRoute path="/home/kamar">
+              <PrivateRoute path="/home/hotel/edit">
+                <div>Edit Hotel</div>
+              </PrivateRoute>
+              <PrivateRoute path="/home/kamar" exact={true}>
                 <DataKamar />
+              </PrivateRoute>
+              <PrivateRoute path="/home/kamar/edit">
+                <div>Edit Kamar</div>
               </PrivateRoute>
               <PrivateRoute path="/home/current-booking">
                 <Pemesanan />

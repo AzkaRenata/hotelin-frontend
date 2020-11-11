@@ -17,7 +17,6 @@ function RegistrationForm(props) {
         successMessage: null
     })
     const [gender, setGender] = useState("male");
-    const [user_level, setUserLevel] = useState("customer");
     const [user_picture, setPicture] = useState(null);
 
     const handleChange = (e) => {
@@ -31,9 +30,7 @@ function RegistrationForm(props) {
     const onGenderChange = (e) => {
         setGender(e.target.value);
     }
-    const onUserLevelChange = (e) => {
-        setUserLevel(e.target.value);
-    }
+
     const onFileChange = (e) => {
       setPicture(e.target.files[0]); 
     }
@@ -77,7 +74,7 @@ function RegistrationForm(props) {
             );
             formData.append( 
               "user_level", 
-              user_level
+              1
             );
             formData.append( 
               "user_picture", 
@@ -92,7 +89,7 @@ function RegistrationForm(props) {
                             'successMessage' : 'Registration successful. Redirecting to home page..'
                         }))
                         localStorage.setItem(ACCESS_TOKEN_NAME,response.data.token);
-                        redirectToHome();
+                        toHotelForm();
                         props.showError(null)
                     } else{
                         props.showError("Some error ocurred");
@@ -106,9 +103,9 @@ function RegistrationForm(props) {
         }
         
     }
-    const redirectToHome = () => {
-        props.updateTitle('Home')
-        props.history.push('/home');
+    const toHotelForm = () => {
+        props.updateTitle('Hotel')
+        props.history.push('/hotel/add');
     }
     const redirectToLogin = () => {
         props.updateTitle('Login')
@@ -182,14 +179,6 @@ function RegistrationForm(props) {
                         <input className="input100" type="password" name="repeat-pass" placeholder="Confirm Password" 
                         id="password_confirmation" value={state.password_confirmation} onChange={handleChange}/>
                         <span className="focus-input100"></span>
-                        </div>
-
-                        <div className="form-group w-full m-t-15">
-                            <select className="form-control" name="user_level" value={gender} onChange={onUserLevelChange}>
-                                <option disabled="disabled" selected="selected">User Level</option>
-                                <option value="1">Hotel Owner</option>
-                                <option value="2">Customer</option>
-                            </select>  
                         </div>
 
                         <div className="wrap-input100 validate-input" data-validate="Telp is required">
