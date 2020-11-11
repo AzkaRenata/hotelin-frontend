@@ -6,23 +6,23 @@ function Sidebar(props) {
 
     const [activeLink, setActiveLink] = useState("link1");
     
-    const redirectToProfile = () => {
+    const toProfile = () => {
         setActiveLink("link1");
         props.history.push('/home/profile');
     }
-    const redirectToDetail = () => {
+    const toKamar = () => {
         setActiveLink("link2");
-        props.history.push('/home/detail'); 
+        props.history.push('/home/kamar'); 
     }
-    const redirectToBooking = () => {
+    const toCurrentBooking = () => {
         setActiveLink("link3");
-        props.history.push('/home/booking'); 
+        props.history.push('/home/current-booking'); 
     }
-    const redirectToVisitor = () => {
+    const toHistoryBooking = () => {
         setActiveLink("link4");
-        props.history.push('/home/visitor'); 
+        props.history.push('/home/history-booking'); 
     }
-    const redirectToCancelBooking = () => {
+    const toCancelBooking = () => {
         setActiveLink("link5");
         props.history.push('/home/cancel-booking'); 
     }
@@ -39,11 +39,11 @@ function Sidebar(props) {
         </div>
         <ul>
             <b>
-                <li className={activeLink === "link1" ? "page" : ""}><a href="javascript:void(0)" onClick={() => redirectToProfile()}><i class=""></i>Profile</a></li>
-                <li className={activeLink === "link2" ? "page" : ""}><a href="javascript:void(0)" onClick={() => redirectToDetail()}><i class=""></i>Detail</a></li>
-                <li className={activeLink === "link3" ? "page" : ""}><a href="javascript:void(0)" onClick={() => redirectToBooking()}><i class=""></i>Pemesanan</a></li>
-                <li className={activeLink === "link4" ? "page" : ""}><a href="javascript:void(0)" onClick={() => redirectToVisitor()}><i class=""></i>Pengunjung</a></li>
-                <li className={activeLink === "link5" ? "page" : ""}><a href="javascript:void(0)" onClick={() => redirectToCancelBooking()}><i class=""></i>Pembatalan</a></li>
+                <li className={activeLink === "link1" ? "page" : ""}><a href="javascript:void(0)" onClick={() => toProfile()}><i class=""></i>Profile</a></li>
+                <li className={activeLink === "link2" ? "page" : ""}><a href="javascript:void(0)" onClick={() => toKamar()}><i class=""></i>List Kamar</a></li>
+                <li className={activeLink === "link3" ? "page" : ""}><a href="javascript:void(0)" onClick={() => toCurrentBooking()}><i class=""></i>Pengunjung</a></li>
+                <li className={activeLink === "link4" ? "page" : ""}><a href="javascript:void(0)" onClick={() => toHistoryBooking()}><i class=""></i>Histori Booking</a></li>
+                <li className={activeLink === "link5" ? "page" : ""}><a href="javascript:void(0)" onClick={() => toCancelBooking()}><i class=""></i>Pembatalan</a></li>
                 <li><a href="javascript:void(0)" onClick={() => handleLogout()}><i class=""></i>Logout</a></li>
             </b>
         </ul> 
