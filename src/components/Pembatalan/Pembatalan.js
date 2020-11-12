@@ -74,16 +74,14 @@ export class Pembatalan extends PureComponent {
     render() {
         return (
             <div className="row">
-                <div className="col-sm-1" />
-                <div className="col-sm-10">
-                    <br />
-                    <br />
-                    <br />
-                    <div className="row">
-                        <div className="col-0">
-                        <h1>&nbsp;Data Pembatalan</h1>
+                <div className="col-1" />
+                <div className="col-10">
+                    <div class="row title-row">
+                        <div class="col-6">
+                            <h2 class="title">Histori Pembatalan</h2>
                         </div>
-                        
+                        <div class="col-6">  
+                        </div>
                     </div>
                     <table className="table">
                         <thead className="table-active">
@@ -124,7 +122,7 @@ export class Pembatalan extends PureComponent {
                         subContainerClassName={"pages pagination"}
                         activeClassName={"active"} />
                 </div>
-                <div className="col-sm-1" />
+                <div className="col-1" />
             </div>
         )
     }

@@ -76,7 +76,7 @@ function AddHotel(props) {
 
   const redirectToHome = () => {
     props.updateTitle('Home')
-    props.history.push('/home');
+    props.history.push('/home/hotel');
   }
 
   const handleSubmitClick = (e) => {
