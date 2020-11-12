@@ -1,7 +1,34 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
+}
+
 .login-card {
     min-height: 60vh;
 }
 
 .registerMessage {
     margin-top: 10vh;
+}
+
+.title{
+    font-weight: bold;
+}
+
+button.sign-in-btn{
+    font-family: 'Open Sans', sans-serif;
+}
+
+button.sign-in-btn:hover{
+    font-family: 'Open Sans', sans-serif;
+    color: #5399af;
+    background-color: #ffffff;
+}
+
+h6{
+    padding-top: 10px;
 }

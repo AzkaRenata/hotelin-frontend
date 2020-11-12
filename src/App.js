@@ -1,11 +1,14 @@
-
-import React, { Component, useState } from 'react';
-import Profile from './Profile';
-import Header from './components/Header/Header';
+import React, {useState} from 'react';
+import './App.css';
 import LoginForm from './components/LoginForm/LoginForm';
 import RegistrationForm from './components/RegistrationForm/RegistrationForm';
-import Home from './components/Home/Home';
-import Dashboard from './components/Dashboard/Dashboard';
+import AddHotel from './components/Hotel/AddHotel';
+import Sidebar from './components/Sidebar/Sidebar';
+import Pemesanan from './components/Pemesanan/Pemesanan';
+import DataKamar from './components/DataKamar/DataKamar';
+import Pembatalan from './components/Pembatalan/Pembatalan';
+import Profile from './components/Profile/Profile';
+import Histori from './components/Histori/Histori';
 import PrivateRoute from './utils/PrivateRoute';
 import {
   BrowserRouter as Router,
@@ -13,18 +16,11 @@ import {
   Route
 } from "react-router-dom";
 import AlertComponent from './components/AlertComponent/AlertComponent';  
-import KamarDetails from './KamarDetails';
-import DataKamar from './components/DataKamar/DataKamar';
-import Histori from './components/Histori/Histori';
-import Pembatalan from './components/Pembatalan/Pembatalan';
-import Pemesanan from './components/Pemesanan/Pemesanan';
-
-// import logo from './logo.svg';
-// import './App.css';
 
 function App() {
   const [title, updateTitle] = useState(null);
   const [errorMessage, updateErrorMessage] = useState(null);
+
   return (
     // <Router>
     // <div className="App">
@@ -50,61 +46,55 @@ function App() {
     // </Router>
     <Router>
     <div className="App">
-      <div className="limiter">
-        <div className="container-login100">
-          <div className="login100-more"></div>
-          <div className="wrap-login100 p-l-50 p-r-50 p-t-72 p-b-50">
-            <Switch>
-              <Route path="/" exact={true}>
-                <LoginForm showError={updateErrorMessage} updateTitle={updateTitle}/>
-              </Route>
-              <Route path="/register">
-                <RegistrationForm showError={updateErrorMessage} updateTitle={updateTitle}/>
-              </Route>
-              <Route path="/login">
-                <LoginForm showError={updateErrorMessage} updateTitle={updateTitle}/>
-              </Route>
-              <Route path="/datakamar">
-                <DataKamar showError={updateErrorMessage} updateTitle={updateTitle}/>
-              </Route>
-              <Route path="/histori">
-                <Histori showError={updateErrorMessage} updateTitle={updateTitle}/>
-              </Route>
-              <Route path="/pemesanan">
-                <Pemesanan showError={updateErrorMessage} updateTitle={updateTitle}/>
-              </Route>
-              <Route path="/pembatalan">
-                <Pembatalan showError={updateErrorMessage} updateTitle={updateTitle}/>
-              </Route>
-              <PrivateRoute path="/home">
-                <Dashboard/>
+        <Switch>
+          <Route path="/" exact={true}>
+            <LoginForm showError={updateErrorMessage} updateTitle={updateTitle}/>     
+          </Route>
+          <Route path="/register">
+            <RegistrationForm showError={updateErrorMessage} updateTitle={updateTitle}/>
+          </Route>
+          <Route path="/login">
+            <LoginForm showError={updateErrorMessage} updateTitle={updateTitle}/>
+          </Route>
+        
+          <div>
+            <PrivateRoute path="/hotel/add" exact={true}>
+                <AddHotel showError={updateErrorMessage} updateTitle={updateTitle} />
+            </PrivateRoute>
+            <PrivateRoute path="/home">
+              <Sidebar/>
+            </PrivateRoute>
+            <div className="home-content">
+              <PrivateRoute path="/home/hotel" exact={true}>
+                <Profile />
               </PrivateRoute>
-            </Switch>
-            <AlertComponent errorMessage={errorMessage} hideError={updateErrorMessage}/>
+              <PrivateRoute path="/home/hotel/edit">
+                <div>Edit Hotel</div>
+              </PrivateRoute>
+              <PrivateRoute path="/home/kamar" exact={true}>
+                <DataKamar />
+              </PrivateRoute>
+              <PrivateRoute path="/home/kamar/edit">
+                <div>Edit Kamar</div>
+              </PrivateRoute>
+              <PrivateRoute path="/home/current-booking">
+                <Pemesanan />
+              </PrivateRoute>
+              <PrivateRoute path="/home/history-booking">
+                <Histori />
+              </PrivateRoute>
+              <PrivateRoute path="/home/cancel-booking">
+                <Pembatalan />
+              </PrivateRoute>
+              <PrivateRoute path="/home/logout">
+                
+              </PrivateRoute>
+            </div>
           </div>
-        </div>
-    </div>
+        </Switch>
+        <AlertComponent errorMessage={errorMessage} hideError={updateErrorMessage}/>
   </div>
   </Router>
-    
-    // <div className="App">
-    //   <header className="App-header">
-    //     <img src={logo} className="App-logo" alt="logo" />
-    //     <p>
-    //       Edit <code>src/App.js</code> and save to reload.
-    //     </p>
-    //     <a
-    //       className="App-link"
-    //       href="https://reactjs.org"
-    //       target="_blank"
-    //       rel="noopener noreferrer"
-    //     >
-    //       Learn React
-    //     </a>
-    //   </header>
-    // </div>
-    
-    <Profile />
   );
 }
 

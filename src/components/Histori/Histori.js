@@ -8,9 +8,6 @@ import deleteimg from './delete.png';
 import {API_BASE_URL, ACCESS_TOKEN_NAME} from '../../constants/apiContants';
 import { withRouter } from "react-router-dom";
 
-
-
-
 export class Histori extends PureComponent {
 
     constructor(props) {
@@ -57,7 +54,7 @@ export class Histori extends PureComponent {
     }
     getData() {
         axios
-            .get(API_BASE_URL+'/user/Histori', { headers: { 'token': localStorage.getItem(ACCESS_TOKEN_NAME) }})
+            .get(API_BASE_URL+'/booking/done', { headers: { 'token': localStorage.getItem(ACCESS_TOKEN_NAME) }})
             // .get('https://jsonplaceholder.typicode.com/comments')
             .then(res => {
                 var tdata = res.data;
@@ -75,8 +72,8 @@ export class Histori extends PureComponent {
     render() {
         return (
             <div className="row">
-                <div className="col-sm-2" />
-                <div className="col">
+                <div className="col-sm-1" />
+                <div className="col-sm-10">
                     <br />
                     <br />
                     <br />
@@ -99,10 +96,10 @@ export class Histori extends PureComponent {
                             {
                                 this.state.tableData.map((tdata, i) => (
                                     <tr>
-                                        <td>{tdata.id}</td>
                                         <td>{tdata.name}</td>
-                                        <td>{tdata.email}</td>
-                                        <td>{tdata.email}</td>
+                                        <td>{tdata.check_in}</td>
+                                        <td>{tdata.room_type}</td>
+                                        <td>{tdata.room_price}</td>
                                         <td><a href="#"><img src={eyecloseupimg}/></a>&nbsp;<a href="#"><img src={deleteimg}/></a></td>
                                     </tr>
 
@@ -125,6 +122,7 @@ export class Histori extends PureComponent {
                         subContainerClassName={"pages pagination"}
                         activeClassName={"active"} />
                 </div>
+                <div className="col-sm-1" />
             </div>
         )
     }
