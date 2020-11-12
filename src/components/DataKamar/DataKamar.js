@@ -27,6 +27,10 @@ export class DataKamar extends PureComponent {
 
     }
 
+    toEditKamar = () => {
+        this.props.history.push('/home/kamar/edit'); 
+    }
+
     handlePageClick = (e) => {
         const selectedPage = e.selected;
         const offset = selectedPage * this.state.perPage;
@@ -84,7 +88,7 @@ export class DataKamar extends PureComponent {
                         <h1>&nbsp;Data Kamar</h1>
                         </div>
                         <div className="col">
-                            <button type="button" class="button float-right">Edit Profile</button>
+                            <button type="button" class="button float-right" onClick={this.toEditKamar}>Tambah Kamar</button>
                         </div>
                     </div>
                     <table className="table">

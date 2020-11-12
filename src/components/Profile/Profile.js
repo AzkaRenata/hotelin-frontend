@@ -1,7 +1,11 @@
 import React from 'react';
 import './profile.css';
+import { withRouter } from 'react-router-dom';
 
-function Profile() {
+function Profile(props) {
+    function toEditProfile() {
+        props.history.push('/home/hotel/edit');
+    }
   return (
 
 <div class="wrapper">
@@ -38,7 +42,7 @@ function Profile() {
         <div class="info">
             <div class="text-right padding">
                 <b>
-                <button type="button" class="btn button">Edit Profile</button>
+                <button type="button" class="button" onClick={() => toEditProfile()}>Edit Profile</button>
                 </b>
             </div>
             <div class="card body mb-3">
@@ -69,4 +73,4 @@ function Profile() {
 </div>
  );
 }
-export default Profile;
+export default withRouter(Profile);

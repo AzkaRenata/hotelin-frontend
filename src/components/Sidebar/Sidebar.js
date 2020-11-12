@@ -8,7 +8,7 @@ function Sidebar(props) {
     
     const toProfile = () => {
         setActiveLink("link1");
-        props.history.push('/home/profile');
+        props.history.push('/home/hotel');
     }
     const toKamar = () => {
         setActiveLink("link2");
