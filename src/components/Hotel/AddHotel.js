@@ -54,7 +54,7 @@ function AddHotel(props) {
          
         axios.post(API_BASE_URL+'/hotel', formData, { headers: { "Authorization": `Bearer ${localStorage.getItem(ACCESS_TOKEN_NAME)}`}})
             .then(function (response) {
-                if(response.status === 200){
+                if(response.status === 201 || response.status === 200){
                     setState(prevState => ({
                         ...prevState,
                         'successMessage' : 'Add Hotel Successfully. Redirecting to home page..'
@@ -76,7 +76,7 @@ function AddHotel(props) {
 
   const redirectToHome = () => {
     props.updateTitle('Home')
-    props.history.push('/home');
+    props.history.push('/home/hotel');
   }
 
   const handleSubmitClick = (e) => {
