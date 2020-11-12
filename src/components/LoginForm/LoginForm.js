@@ -103,7 +103,7 @@ function LoginForm(props) {
           <div className="wrap-login100 p-l-50 p-r-50 p-t-72 p-b-50">
             <form className="login100-form validate-form">
               <div className="p-b-59 w-full text-center">
-                <span className="login100-form-title text-blue">
+                <span className="login100-form-title text-blue title">
                   LOGIN
                 </span>
                 <div className="dis-inline text-center">
@@ -111,7 +111,7 @@ function LoginForm(props) {
                     &nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;
                     </span>  
                 </div>
-                <a href="javascript:void(0)" className="login100-form-title" onClick={() => redirectToRegister()} >
+                <a href="javascript:void(0)" className="login100-form-title title" onClick={() => redirectToRegister()} >
                 REGISTER
                 </a>
                 
@@ -133,8 +133,8 @@ function LoginForm(props) {
               <div className="container-login100-form-btn m-t-59">
                 <div className="wrap-login100-form-btn">
                   <div className="login100-form-bgbtn"></div>
-                  <button className="login100-form-btn w-full" onClick={handleSubmitClick}>
-                    Lanjut
+                  <button className="login100-form-btn w-full sign-in-btn" onClick={handleSubmitClick}>
+                    Sign in
                   </button>
                 </div>
               </div>
@@ -142,7 +142,7 @@ function LoginForm(props) {
                   {state.successMessage}
             </div>
             </form>
-            <p className="text-center fs-18">Belum Punya Akun ? <a className="fs-18" href="javascript:void(0)" onClick={() => redirectToRegister()}>Daftar</a></p>
+            <h6 className="text-center fs-18">Belum Punya Akun ? <a className="fs-18" href="javascript:void(0)" onClick={() => redirectToRegister()}>Daftar</a></h6>
           </div>
         </div>
       </div>

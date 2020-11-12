@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import axios from 'axios';
 import './MyStyle.css';
 import './Bootstrap.css';
+import './RegistrationForm.css';
 import {API_BASE_URL, ACCESS_TOKEN_NAME} from '../../constants/apiContants';
 import { withRouter } from "react-router-dom";
 
@@ -128,7 +129,7 @@ function RegistrationForm(props) {
                     <form className="login100-form validate-form">
                         <div className="p-b-59 w-full text-center">
                             <div className="dis-inline text-left">
-                                <a href="javascript:void(0)" className="login100-form-title text-center" onClick={() => redirectToLogin()}>
+                                <a href="javascript:void(0)" className="login100-form-title text-center title" onClick={() => redirectToLogin()}>
                                 LOGIN
                                 </a>  
                             </div>
@@ -138,34 +139,21 @@ function RegistrationForm(props) {
                                 </span>  
                             </div>
                             <div className="dis-inline text-right">
-                                <span className="login100-form-title text-center text-blue">
+                                <span className="login100-form-title text-center text-blue title">
                                 REGISTER
                                 </span>  
                             </div>
-                        </div>
-                        <div className="wrap-input100 validate-input" data-validate="Name is required">
-                        <input className="input100" type="text" name="name" placeholder="Name..."
-                        id="name" value={state.name} onChange={handleChange} />
-                        <span className="focus-input100"></span>
-                        </div>
-
-                        <div className="form-group w-full m-t-15">
-                            <select className="form-control" name="gender" value={gender} onChange={onGenderChange}>
-                                <option disabled="disabled" selected="selected">Gender</option>
-                                <option value="Male">Male</option>
-                                <option value="Female">Female</option>
-                            </select>  
-                        </div>
-
-                        <div className="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-                        <input className="input100" type="text" name="email" placeholder="Email addess..." 
-                        id="email" value={state.email} onChange={handleChange}/>
-                        <span className="focus-input100"></span>
                         </div>
 
                         <div className="wrap-input100 validate-input" data-validate="Username is required">
                         <input className="input100" type="text" name="username" placeholder="Username..." 
                         id="username" value={state.username} onChange={handleChange}/>
+                        <span className="focus-input100"></span>
+                        </div>
+
+                        <div className="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+                        <input className="input100" type="text" name="email" placeholder="Email addess..." 
+                        id="email" value={state.email} onChange={handleChange}/>
                         <span className="focus-input100"></span>
                         </div>
 
@@ -179,6 +167,20 @@ function RegistrationForm(props) {
                         <input className="input100" type="password" name="repeat-pass" placeholder="Confirm Password" 
                         id="password_confirmation" value={state.password_confirmation} onChange={handleChange}/>
                         <span className="focus-input100"></span>
+                        </div>
+
+                        <div className="wrap-input100 validate-input" data-validate="Name is required">
+                        <input className="input100" type="text" name="name" placeholder="Name..."
+                        id="name" value={state.name} onChange={handleChange} />
+                        <span className="focus-input100"></span>
+                        </div>
+
+                        <div className="form-group w-full m-t-15">
+                            <select className="form-control" name="gender" value={gender} onChange={onGenderChange}>
+                                <option disabled="disabled" selected="selected">Gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>  
                         </div>
 
                         <div className="wrap-input100 validate-input" data-validate="Telp is required">
@@ -201,14 +203,14 @@ function RegistrationForm(props) {
                         <div className="container-login100-form-btn m-t-59">
                         <div className="wrap-login100-form-btn">
                             <div className="login100-form-bgbtn"></div>
-                            <button className="login100-form-btn w-full" onClick={handleSubmitClick}>
-                            Lanjut
+                            <button className="login100-form-btn w-full sign-up-btn" onClick={handleSubmitClick}>
+                            Sign Up
                             </button>
                         </div>
 
                         </div>
                     </form>
-                    <p className="text-center fs-18">Sudah Punya Akun ? <a className="fs-18" href="javascript:void(0)" onClick={() => redirectToLogin()}>Masuk</a></p>
+                    <h6 className="text-center fs-18">Sudah Punya Akun ? <a className="fs-18" href="javascript:void(0)" onClick={() => redirectToLogin()}>Masuk</a></h6>
                 </div>
             </div>
         </div>

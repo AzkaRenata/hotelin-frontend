@@ -10,6 +10,9 @@
   font-family: 'Open Sans', sans-serif;
 }
 
+a{
+  font-family: 'Open Sans', sans-serif;
+}
 .logo{
   width: 96px;
   height: 101px;
@@ -62,7 +65,7 @@
 }
 
 .wrapper .sidebar ul li:hover a{
-  color: #707070;
+  color: #5399af;
 }
 
 .wrapper .main_content {
@@ -87,7 +90,7 @@
 }
 
 .page a{
-  color: #707070 !important;
+  color: #5399af !important;
 }
 
 a:active {
