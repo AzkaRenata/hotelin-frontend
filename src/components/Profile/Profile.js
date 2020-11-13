@@ -1,6 +1,10 @@
-import React from 'react';
+
+import React, {useState,useEffect} from 'react';
 import './profile.css';
 import { withRouter } from 'react-router-dom';
+import { ACCESS_TOKEN_NAME, API_BASE_URL } from '../../constants/apiContants';
+import axios from 'axios'
+import {IMAGE_URL} from '../../constants/apiContants';
 import { Container, Row } from 'react-bootstrap';
 
 function Profile(props) {

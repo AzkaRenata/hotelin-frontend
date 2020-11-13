@@ -27,6 +27,10 @@ export class DataKamar extends PureComponent {
 
     }
 
+    toAddKamar = () => {
+        this.props.history.push('/home/kamar/add'); 
+    }
+    
     toEditKamar = () => {
         this.props.history.push('/home/kamar/edit'); 
     }
@@ -78,17 +82,16 @@ export class DataKamar extends PureComponent {
     render() {
         return (
             <div className="row">
-                <div className="col-sm-1" />
-                <div className="col-sm-10">
-                    <br />
-                    <br />
-                    <br />
-                    <div className="row">
-                        <div className="col-0">
-                        <h1>&nbsp;Data Kamar</h1>
+                <div className="col-1" />
+                <div className="col-10">
+                    <div class="row title-row">
+                        <div class="col-6">
+                            <h2 class="title">Data Kamar</h2>
                         </div>
-                        <div className="col">
-                            <button type="button" class="button float-right" onClick={this.toEditKamar}>Tambah Kamar</button>
+                        <div class="col-6">
+                            <button class="add-room-btn" onClick={this.toEditKamar}>
+                                Tambah Kamar
+                            </button>    
                         </div>
                     </div>
                     <table className="table">
@@ -129,6 +132,7 @@ export class DataKamar extends PureComponent {
                         activeClassName={"active"} />
                 </div>
                 <div className="col-sm-1" />
+                <div className="col-1" />
             </div>
         )
     }

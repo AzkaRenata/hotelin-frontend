@@ -3,6 +3,7 @@ import './App.css';
 import LoginForm from './components/LoginForm/LoginForm';
 import RegistrationForm from './components/RegistrationForm/RegistrationForm';
 import AddHotel from './components/Hotel/AddHotel';
+import EditHotel from './components/Hotel/EditHotel';
 import Sidebar from './components/Sidebar/Sidebar';
 import Pemesanan from './components/Pemesanan/Pemesanan';
 import DataKamar from './components/DataKamar/DataKamar';
@@ -56,11 +57,7 @@ function App() {
           <Route path="/login">
             <LoginForm showError={updateErrorMessage} updateTitle={updateTitle}/>
           </Route>
-        
           <div>
-            <PrivateRoute path="/hotel/add" exact={true}>
-                <AddHotel showError={updateErrorMessage} updateTitle={updateTitle} />
-            </PrivateRoute>
             <PrivateRoute path="/home">
               <Sidebar/>
             </PrivateRoute>
@@ -68,11 +65,16 @@ function App() {
               <PrivateRoute path="/home/hotel" exact={true}>
                 <Profile />
               </PrivateRoute>
-              <PrivateRoute path="/home/hotel/edit">
-                <div>Edit Hotel</div>
+              <PrivateRoute path="/hotel/add" exact={true}>
+                <AddHotel showError={updateErrorMessage} updateTitle={updateTitle} />
               </PrivateRoute>
+              <PrivateRoute path="/home/hotel/edit">
+                <EditHotel showError={updateErrorMessage} updateTitle={updateTitle} />
               <PrivateRoute path="/home/kamar" exact={true}>
                 <DataKamar />
+              </PrivateRoute>
+              <PrivateRoute path="/home/kamar/add">
+                <div>Add Kamar</div>
               </PrivateRoute>
               <PrivateRoute path="/home/kamar/edit">
                 <div>Edit Kamar</div>
