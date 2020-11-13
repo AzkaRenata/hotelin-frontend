@@ -57,6 +57,7 @@ function App() {
           <Route path="/login">
             <LoginForm showError={updateErrorMessage} updateTitle={updateTitle}/>
           </Route>
+        
           <div>
             <PrivateRoute path="/home">
               <Sidebar/>
@@ -70,6 +71,7 @@ function App() {
               </PrivateRoute>
               <PrivateRoute path="/home/hotel/edit">
                 <EditHotel showError={updateErrorMessage} updateTitle={updateTitle} />
+              </PrivateRoute>
               <PrivateRoute path="/home/kamar" exact={true}>
                 <DataKamar />
               </PrivateRoute>
