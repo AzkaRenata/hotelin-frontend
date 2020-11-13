@@ -64,7 +64,7 @@ export class DataKamar extends PureComponent {
     }
     getData() {
         axios
-            .get(API_BASE_URL+'/user/datakamar', { headers: { 'token': localStorage.getItem(ACCESS_TOKEN_NAME) }})
+            .get(API_BASE_URL+'/room', { headers: { 'token': localStorage.getItem(ACCESS_TOKEN_NAME) }})
             // .get('https://jsonplaceholder.typicode.com/comments')
             .then(res => {
                 var tdata = res.data;
@@ -89,7 +89,7 @@ export class DataKamar extends PureComponent {
                             <h2 class="title">Data Kamar</h2>
                         </div>
                         <div class="col-6">
-                            <button class="add-room-btn">
+                            <button class="add-room-btn" onClick={this.toEditKamar}>
                                 Tambah Kamar
                             </button>    
                         </div>
@@ -98,7 +98,7 @@ export class DataKamar extends PureComponent {
                         <thead className="table-active">
                             <th scope="col">Tipe Kamar</th>
                             <th scope="col">Harga</th>
-                            <th scope="col">Jumlah Kamar</th>
+                            <th scope="col">Kapasitas Kamar</th>
                             <th scope="col">Action</th>
 
                         </thead>
@@ -106,9 +106,9 @@ export class DataKamar extends PureComponent {
                             {
                                 this.state.tableData.map((tdata, i) => (
                                     <tr>
-                                        <td>{tdata.id}</td>
-                                        <td>{tdata.name}</td>
-                                        <td>{tdata.email}</td>
+                                        <td>{tdata.room_type}</td>
+                                        <td>{tdata.room_price}</td>
+                                        <td>{tdata.guest_capacity}</td>
                                         <td><a href="#"><img src={eyecloseupimg}/></a>&nbsp;<a href="#"><img src={pencilimg}/></a>&nbsp;<a href="#"><img src={deleteimg}/></a></td>
                                     </tr>
 
@@ -131,6 +131,7 @@ export class DataKamar extends PureComponent {
                         subContainerClassName={"pages pagination"}
                         activeClassName={"active"} />
                 </div>
+                <div className="col-sm-1" />
                 <div className="col-1" />
             </div>
         )
