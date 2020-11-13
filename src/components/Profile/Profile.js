@@ -4,6 +4,8 @@ import { withRouter } from 'react-router-dom';
 import { ACCESS_TOKEN_NAME, API_BASE_URL } from '../../constants/apiContants';
 import axios from 'axios'
 import {IMAGE_URL} from '../../constants/apiContants';
+import { Container, Row } from 'react-bootstrap';
+
 function Profile(props) {
     
     const [state , setHotel] = useState({
@@ -59,7 +61,6 @@ function Profile(props) {
     function toEditProfile() {
         props.history.push('/home/hotel/edit');
     }
-    
   return (
 <div class="wrapper">
     <div class=" main_content_left">
@@ -110,9 +111,8 @@ function Profile(props) {
                         <i class="fas fa-wifi padding-icon"><a> Free Wifi</a></i> */}
                 </div>
             </div>
-      </div>
-    </div>
-</div>
+            <div class="col-1"></div>
+        </div>
  );
 }
 export default withRouter(Profile);
