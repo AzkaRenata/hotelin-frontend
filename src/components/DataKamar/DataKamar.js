@@ -27,6 +27,10 @@ export class DataKamar extends PureComponent {
 
     }
 
+    toAddKamar = () => {
+        this.props.history.push('/home/kamar/add'); 
+    }
+    
     toEditKamar = () => {
         this.props.history.push('/home/kamar/edit'); 
     }

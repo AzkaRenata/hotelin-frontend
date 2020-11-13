@@ -48,7 +48,7 @@ function LoginForm(props) {
     }
     const redirectToHome = () => {
         props.updateTitle('Home')
-        props.history.push('/home/profile');
+        props.history.push('/home/hotel');
     }
     const redirectToRegister = () => {
         props.history.push('/register'); 
