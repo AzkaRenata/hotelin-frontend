@@ -56,8 +56,7 @@ export class Pembatalan extends PureComponent {
     }
     getData() {
         axios
-            .get(API_BASE_URL+'/booking/canceled', { headers: { 'token': localStorage.getItem(ACCESS_TOKEN_NAME) }})
-            // .get('https://jsonplaceholder.typicode.com/comments')
+            .get(API_BASE_URL+'/booking/canceled', { headers: { "Authorization": `Bearer ${localStorage.getItem(ACCESS_TOKEN_NAME)}`}})
             .then(res => {
                 var tdata = res.data;
                 console.log('data-->' + JSON.stringify(tdata))
@@ -96,10 +95,10 @@ export class Pembatalan extends PureComponent {
                             {
                                 this.state.tableData.map((tdata, i) => (
                                     <tr>
-                                        <td>{tdata.name}</td>
+                                        <td>{tdata.user.name}</td>
                                         <td>{tdata.check_in}</td>
-                                        <td>{tdata.room_type}</td>
-                                        <td>{tdata.room_price}</td>
+                                        <td>{tdata.room.room_type}</td>
+                                        <td>{tdata.room.room_price}</td>
                                         <td><a href="#"><img src={eyecloseupimg}/></a>&nbsp;<a href="#"><img src={deleteimg}/></a></td>
                                     </tr>
 

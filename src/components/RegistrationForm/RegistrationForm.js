@@ -195,12 +195,13 @@ function RegistrationForm(props) {
                         <span className="focus-input100"></span>
                         </div>
 
-                        <div class="form-group w-full m-t-15">
-                            Upload Picture
+                        <div class="form-group w-full m-t-15 m-box">
+                            <b>Upload Picture</b>
+                            <br/>
                             <input type="file" class="form-control-file border" onChange={onFileChange} />
                         </div>
 
-                        <div className="container-login100-form-btn m-t-59">
+                        <div className="container-login100-form-btn m-t-30">
                         <div className="wrap-login100-form-btn">
                             <div className="login100-form-bgbtn"></div>
                             <button className="login100-form-btn w-full sign-up-btn" onClick={handleSubmitClick}>
