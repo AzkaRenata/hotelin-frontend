@@ -2,13 +2,12 @@ import React, { PureComponent,useState } from 'react';
 import axios from 'axios';
 import ReactPaginate from 'react-paginate';
 import "./Pemesanan.css";
+import BookingView from "./BookingView";
 import eyecloseupimg from './eye-closeup.png';
 import deleteimg from './delete.png';
-// import pencilimg from './pencil.png';
 import {API_BASE_URL, ACCESS_TOKEN_NAME} from '../../constants/apiContants';
-import { withRouter } from "react-router-dom";
-
-
+import { withRouter, Link } from "react-router-dom";
+import SweetAlert from 'react-bootstrap-sweetalert';
 
 export class Pemesanan extends PureComponent {
 
@@ -20,7 +19,9 @@ export class Pemesanan extends PureComponent {
             tableData: [],
             orgtableData: [],
             perPage: 5,
-            currentPage: 0
+            currentPage: 0,
+            alert: null,
+            view: null
         }
 
         this.handlePageClick = this.handlePageClick.bind(this);
@@ -52,12 +53,12 @@ export class Pemesanan extends PureComponent {
     }
 
     componentDidMount() {
-        this.getData();
+        const $status = this.props.status;
+        this.getData($status);
     }
-    getData() {
+    getData(status) {
         axios
-            .get(API_BASE_URL+'/booking/ongoing', { headers: { 'token': localStorage.getItem(ACCESS_TOKEN_NAME) }})
-            // .get('https://jsonplaceholder.typicode.com/comments')
+            .get(API_BASE_URL+`/booking/list/${status}`, { headers: { "Authorization": `Bearer ${localStorage.getItem(ACCESS_TOKEN_NAME)}`}})
             .then(res => {
                 var tdata = res.data;
                 console.log('data-->' + JSON.stringify(tdata))
@@ -70,10 +71,94 @@ export class Pemesanan extends PureComponent {
             });
     }
 
+    hideAlert() {
+        this.setState({
+            alert: null
+        });
+    }
+
+    hideView() {
+        this.setState({
+            view: null
+        });
+    }
+
+    confirmDelete(id){
+        const getAlert = () => (
+            <SweetAlert
+                warning
+                showCancel
+                confirmBtnText="Delete"
+                cancelBtnText="Cancel"
+                confirmBtnBsStyle="default"
+                cancelBtnBsStyle="danger"
+                title="Wait ..."
+                onConfirm={() => this.deleteItem(id)}
+                onCancel={() => this.hideAlert()}
+                focusCancelBtn
+                >
+                Are you sure want to delete?
+            </SweetAlert>
+        );
+        this.setState({
+            alert: getAlert()
+        });
+    }
+
+    showOnGoingBooking(id){
+        const getView = () => (
+            <BookingView booking_id={id} onCancel={() => this.hideView()}/>
+        );
+        this.setState({
+            view: getView()
+        });
+    }
+
+    deleteItem(id) {
+        console.log(id);
+        axios.delete(API_BASE_URL+`/booking/delete/${id}`, { headers: { "Authorization": `Bearer ${localStorage.getItem(ACCESS_TOKEN_NAME)}`}}).then(response => {
+            var msg = response.data.success;
+            if(msg == true){
+                this.hideAlert();
+                this.goToHome();
+            } else {
+                console.log(response.data)
+                console.log("Gagal");
+            }
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+    }
+
+    goToHome(){
+        const getAlert = () => (
+            <SweetAlert
+                success
+                title="Success!"
+                onConfirm={() => this.onSuccess() }
+                onCancel={this.hideAlert()}
+                timeout={2000}
+                confirmBtnText="Oke Siap"
+                >
+                Deleted room successfully
+            </SweetAlert>
+        );
+        this.setState({
+            alert: getAlert()
+        });
+    }
+ 
+    onSuccess(){
+        this.componentDidMount();
+        this.hideAlert();
+    }
 
     render() {
         return (
             <div className="row">
+                {this.state.view}
+                {this.state.alert}
                 <div className="col-1" />
                 <div className="col-10">
                     <div class="row title-row">
@@ -86,7 +171,7 @@ export class Pemesanan extends PureComponent {
                     <table className="table">
                         <thead className="table-active">
                         <th scope="col">Nama Pemesan</th>
-                          <th scope="col">Tanggal Menginap</th>
+                          <th scope="col">Check-In</th>
                           <th scope="col">Tipe Kamar</th>
                           <th scope="col">Harga</th>
                           <th scope="col">Action</th>
@@ -100,7 +185,9 @@ export class Pemesanan extends PureComponent {
                                         <td>{tdata.check_in}</td>
                                         <td>{tdata.room_type}</td>
                                         <td>{tdata.room_price}</td>
-                                        <td><a href="#"><img src={eyecloseupimg}/></a>&nbsp;<a href="#"><img src={deleteimg}/></a></td>
+                                        <td>
+                                            <Link onClick={() => this.showOnGoingBooking(tdata.id)}><img src={eyecloseupimg}/></Link>&nbsp;
+                                            <Link onClick={() => this.confirmDelete(tdata.id)}><img src={deleteimg}/></Link></td>
                                     </tr>
 
                                 ))

@@ -4,6 +4,7 @@ import LoginForm from './components/LoginForm/LoginForm';
 import RegistrationForm from './components/RegistrationForm/RegistrationForm';
 import AddHotel from './components/Hotel/AddHotel';
 import EditHotel from './components/Hotel/EditHotel';
+import RoomForm from './components/DataKamar/RoomForm';
 import Sidebar from './components/Sidebar/Sidebar';
 import Pemesanan from './components/Pemesanan/Pemesanan';
 import DataKamar from './components/DataKamar/DataKamar';
@@ -19,74 +20,54 @@ import {
 import AlertComponent from './components/AlertComponent/AlertComponent';  
 
 function App() {
-  const [title, updateTitle] = useState(null);
+  const [activeMenu, updateMenu] = useState("/home/hotel");
   const [errorMessage, updateErrorMessage] = useState(null);
 
   return (
-    // <Router>
-    // <div className="App">
-    //   <Header title={title}/>
-    //     <div className="container d-flex align-items-center flex-column">
-    //       <Switch>
-    //         <Route path="/" exact={true}>
-    //           <RegistrationForm showError={updateErrorMessage} updateTitle={updateTitle}/>
-    //         </Route>
-    //         <Route path="/register">
-    //           <RegistrationForm showError={updateErrorMessage} updateTitle={updateTitle}/>
-    //         </Route>
-    //         <Route path="/login">
-    //           <LoginForm showError={updateErrorMessage} updateTitle={updateTitle}/>
-    //         </Route>
-    //         <PrivateRoute path="/home">
-    //           <Home/>
-    //         </PrivateRoute>
-    //       </Switch>
-    //       <AlertComponent errorMessage={errorMessage} hideError={updateErrorMessage}/>
-    //     </div>
-    // </div>
-    // </Router>
     <Router>
     <div className="App">
         <Switch>
           <Route path="/" exact={true}>
-            <LoginForm showError={updateErrorMessage} updateTitle={updateTitle}/>     
+            <LoginForm showError={updateErrorMessage} setMenu={updateMenu}/>     
           </Route>
           <Route path="/register">
-            <RegistrationForm showError={updateErrorMessage} updateTitle={updateTitle}/>
+            <RegistrationForm showError={updateErrorMessage} setMenu={updateMenu}/>
           </Route>
           <Route path="/login">
-            <LoginForm showError={updateErrorMessage} updateTitle={updateTitle}/>
+            <LoginForm showError={updateErrorMessage} setMenu={updateMenu}/>
           </Route>
+        
           <div>
             <PrivateRoute path="/home">
-              <Sidebar/>
+              <Sidebar activeMenu={activeMenu} setMenu={updateMenu}/>
             </PrivateRoute>
             <div className="home-content">
               <PrivateRoute path="/home/hotel" exact={true}>
-                <Profile />
+                <Profile showError={updateErrorMessage} setMenu={updateMenu} />
               </PrivateRoute>
               <PrivateRoute path="/hotel/add" exact={true}>
-                <AddHotel showError={updateErrorMessage} updateTitle={updateTitle} />
+                <AddHotel showError={updateErrorMessage} setMenu={updateMenu} />
               </PrivateRoute>
               <PrivateRoute path="/home/hotel/edit">
-                <EditHotel showError={updateErrorMessage} updateTitle={updateTitle} />
+                <EditHotel showError={updateErrorMessage} setMenu={updateMenu} />
+              </PrivateRoute>
               <PrivateRoute path="/home/kamar" exact={true}>
                 <DataKamar />
               </PrivateRoute>
               <PrivateRoute path="/home/kamar/add">
-                <div>Add Kamar</div>
+                <RoomForm showError={updateErrorMessage} setMenu={updateMenu} type="add"/>
               </PrivateRoute>
-              <PrivateRoute path="/home/kamar/edit">
-                <div>Edit Kamar</div>
+              <PrivateRoute path="/home/kamar/edit/:id">
+                <RoomForm showError={updateErrorMessage} setMenu={updateMenu} type="edit"/>
               </PrivateRoute>
               <PrivateRoute path="/home/current-booking">
-                <Pemesanan />
+                <Pemesanan status="1"/>
               </PrivateRoute>
               <PrivateRoute path="/home/history-booking">
-                <Histori />
+                <Pemesanan status="2"/>
               </PrivateRoute>
               <PrivateRoute path="/home/cancel-booking">
-                <Pembatalan />
+                <Pemesanan status="3"/>
               </PrivateRoute>
               <PrivateRoute path="/home/logout">
                 
