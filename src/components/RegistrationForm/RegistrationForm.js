@@ -75,7 +75,7 @@ function RegistrationForm(props) {
             );
             formData.append( 
               "user_level", 
-              1
+              "1"
             );
             formData.append( 
               "user_picture", 
@@ -84,7 +84,7 @@ function RegistrationForm(props) {
              
             axios.post(API_BASE_URL+'/user/register', formData)
                 .then(function (response) {
-                    if(response.status === 200){
+                    if(response.status === 201 || response.status === 200){
                         setState(prevState => ({
                             ...prevState,
                             'successMessage' : 'Registration successful. Redirecting to home page..'
@@ -105,11 +105,10 @@ function RegistrationForm(props) {
         
     }
     const toHotelForm = () => {
-        props.updateTitle('Hotel')
+        props.setMenu('/hotel/add');
         props.history.push('/hotel/add');
     }
     const redirectToLogin = () => {
-        props.updateTitle('Login')
         props.history.push('/login'); 
     }
     const handleSubmitClick = (e) => {

@@ -52,7 +52,7 @@ function AddHotel(props) {
           hotel_picture
         ); 
          
-        axios.post(API_BASE_URL+'/hotel', formData, { headers: { "Authorization": `Bearer ${localStorage.getItem(ACCESS_TOKEN_NAME)}`}})
+        axios.post(API_BASE_URL+'/hotel/create', formData, { headers: { "Authorization": `Bearer ${localStorage.getItem(ACCESS_TOKEN_NAME)}`}})
             .then(function (response) {
                 if(response.status === 200 || (response.status === 201)){
                     setState(prevState => ({
@@ -75,7 +75,7 @@ function AddHotel(props) {
   }
 
   const redirectToHome = () => {
-    props.updateTitle('Home')
+    props.setMenu('/home/hotel')
     props.history.push('/home/hotel');
   }
 

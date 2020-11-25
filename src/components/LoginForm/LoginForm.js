@@ -52,7 +52,7 @@ function LoginForm(props) {
     }
     const redirectToRegister = () => {
         props.history.push('/register'); 
-        props.updateMenu('Register');
+        props.setMenu('Register');
     }
 
     return(

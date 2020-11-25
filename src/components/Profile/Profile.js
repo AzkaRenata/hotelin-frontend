@@ -25,15 +25,15 @@ function Profile(props) {
                 hotelFacility: responses[2].data
             })
         }))
-        console.log(state.hotelFacility)
+        for(var i=0; i<5; i++){
+            setStar(<i class="fas fa-star color-icon"></i>);
+        }
+        console.log(state.dataHotel)
     })
 
     const [stars, setStar] = useState([]);
     useEffect(() => {
         fetchHotel();
-        for(var i=0; i<5; i++){
-            setStar(<i class="fas fa-star color-icon"></i>);
-        }
     }, [])
 
     function toLogin() {
@@ -55,10 +55,12 @@ function Profile(props) {
         <b><div class="header">Profile Hotel</div></b> 
         <div className="KamarDetails-detail">
             {
-                state.dataHotel["hotel_picture"] != null ?
-                <img src={IMAGE_URL + state.dataHotel.map(item => item.hotel_picture)} id="CV" className="hotel-image"/>
-                :
-                <img src="../../hotel1.jpg" id="CV" className="hotel-image"/>
+                state.dataHotel.map(item => item.hotel_picture != null ?
+                    <img src={IMAGE_URL + item.hotel_picture} id="CV" className="hotel-image"/>
+                    :
+                    <img src="../../hotel1.jpg" id="CV" className="hotel-image"/>
+                )  
+                
             }
             {
                 state.dataRoom.length != 0 ?
@@ -92,11 +94,20 @@ function Profile(props) {
                         stars
                     }
                     <br />
-                    <b>{Math.floor(state.dataHotel.map(item => item.hotel_rating)*100)/100}</b>
-                    
-                    
+                    <b>{ state.dataHotel.map(item => 
+                    Math.floor(state.dataHotel.map(item => item.hotel_rating)*100)/100 != 0 ?
+                    Math.floor(state.dataHotel.map(item => item.hotel_rating)*100)/100
+                        :
+                    " No Rating "
+                    )}</b> 
                     <br></br>
-                    <b><p class="card-text color-price">{"Rp. " + state.dataHotel.map(item => item.hotel_price)}</p></b>
+                    <b>
+                        <p class="card-text color-price">{state.dataHotel.map(item => item.hotel_price
+                        != null ?
+                        "Rp. "+item.hotel_price : " "
+                        )}
+                        </p>
+                    </b>
                         <b><p class="card-title">About Hotel</p></b>
                         <p class="card-text">{state.dataHotel.map(item => item.hotel_desc)}</p>
                         {  
