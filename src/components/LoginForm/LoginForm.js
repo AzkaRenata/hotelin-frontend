@@ -26,7 +26,7 @@ function LoginForm(props) {
         }
         axios.post(API_BASE_URL+'/user/login', payload)
             .then(function (response) {
-                if(response.status === 200){
+                if(response.status === 200 || (response.status === 201)){
                     setState(prevState => ({
                         ...prevState,
                         'successMessage' : 'Login successful. Redirecting to home page..'
@@ -35,7 +35,7 @@ function LoginForm(props) {
                     redirectToHome();
                     props.showError(null)
                 }
-                else if(response.code === 400){
+                else if(response.status === 400){
                     props.showError("Username and password do not match");
                 }
                 else{
@@ -47,55 +47,14 @@ function LoginForm(props) {
             });
     }
     const redirectToHome = () => {
-        props.updateTitle('Home')
-        props.history.push('/home/profile');
+        props.setMenu('/home/hotel')
+        props.history.push('/home/hotel');
     }
     const redirectToRegister = () => {
         props.history.push('/register'); 
-        props.updateTitle('Register');
+        props.setMenu('Register');
     }
-    // return(
-    //     <div className="card col-12 col-lg-4 login-card mt-2 hv-center">
-    //         <form>
-    //             <div className="form-group text-left">
-    //             <label htmlFor="exampleInputEmail1">Email address</label>
-    //             <input type="email" 
-    //                    className="form-control" 
-    //                    id="email" 
-    //                    aria-describedby="emailHelp" 
-    //                    placeholder="Enter email" 
-    //                    value={state.email}
-    //                    onChange={handleChange}
-    //             />
-    //             <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
-    //             </div>
-    //             <div className="form-group text-left">
-    //             <label htmlFor="exampleInputPassword1">Password</label>
-    //             <input type="password" 
-    //                    className="form-control" 
-    //                    id="password" 
-    //                    placeholder="Password"
-    //                    value={state.password}
-    //                    onChange={handleChange} 
-    //             />
-    //             </div>
-    //             <div className="form-check">
-    //             </div>
-    //             <button 
-    //                 type="submit" 
-    //                 className="btn btn-primary"
-    //                 onClick={handleSubmitClick}
-    //             >Submit</button>
-    //         </form>
-    //         <div className="alert alert-success mt-2" style={{display: state.successMessage ? 'block' : 'none' }} role="alert">
-    //             {state.successMessage}
-    //         </div>
-    //         <div className="registerMessage">
-    //             <span>Dont have an account? </span>
-    //             <span className="loginText" onClick={() => redirectToRegister()}>Register</span> 
-    //         </div>
-    //     </div>
-    // )
+
     return(
       <div className="limiter">
         <div className="container-login100">
@@ -119,7 +78,7 @@ function LoginForm(props) {
             </div>
 
               <div className="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-                <input className="input100" type="text" name="email" placeholder="Email addess..." 
+                <input className="input100" type="email" name="email" placeholder="Email addess..." 
                 id="email" value={state.email} onChange={handleChange}/>
                 <span className="focus-input100"></span>
               </div>

@@ -2725,6 +2725,16 @@ iframe {
 .m-r-auto {margin-right: auto;}
 
 
+/*BOX*/
+.m-box {
+	border: 1px solid grey;
+	border-radius: 5px;
+	width: 100%;
+	padding: 15px;
+	text-align: left;
+
+}
+
 
 /*[ TEXT ]
 ///////////////////////////////////////////////////////////

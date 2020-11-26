@@ -91,7 +91,7 @@ function EditHotel(props) {
     }
 
     const redirectToHome = () => {
-        props.updateTitle('Home')
+        props.setMenu('/home/hotel')
         props.history.push('/home/hotel');
     }
 

@@ -75,7 +75,7 @@ function RegistrationForm(props) {
             );
             formData.append( 
               "user_level", 
-              1
+              "1"
             );
             formData.append( 
               "user_picture", 
@@ -84,7 +84,7 @@ function RegistrationForm(props) {
              
             axios.post(API_BASE_URL+'/user/register', formData)
                 .then(function (response) {
-                    if(response.status === 200){
+                    if(response.status === 201 || response.status === 200){
                         setState(prevState => ({
                             ...prevState,
                             'successMessage' : 'Registration successful. Redirecting to home page..'
@@ -105,11 +105,10 @@ function RegistrationForm(props) {
         
     }
     const toHotelForm = () => {
-        props.updateTitle('Hotel')
+        props.setMenu('/hotel/add');
         props.history.push('/hotel/add');
     }
     const redirectToLogin = () => {
-        props.updateTitle('Login')
         props.history.push('/login'); 
     }
     const handleSubmitClick = (e) => {
@@ -195,12 +194,13 @@ function RegistrationForm(props) {
                         <span className="focus-input100"></span>
                         </div>
 
-                        <div class="form-group w-full m-t-15">
-                            Upload Picture
+                        <div class="form-group w-full m-t-15 m-box">
+                            <b>Upload Picture</b>
+                            <br/>
                             <input type="file" class="form-control-file border" onChange={onFileChange} />
                         </div>
 
-                        <div className="container-login100-form-btn m-t-59">
+                        <div className="container-login100-form-btn m-t-30">
                         <div className="wrap-login100-form-btn">
                             <div className="login100-form-bgbtn"></div>
                             <button className="login100-form-btn w-full sign-up-btn" onClick={handleSubmitClick}>
