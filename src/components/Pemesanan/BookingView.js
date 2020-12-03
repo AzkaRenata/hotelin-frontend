@@ -18,7 +18,7 @@ class RoomView extends Component {
         axios.get(API_BASE_URL+`/booking/show/${booking_id}`,{ headers: { "Authorization": `Bearer ${localStorage.getItem(ACCESS_TOKEN_NAME)}`}})
         .then(response => {
             this.setState({
-                booking_data: response.data[0]
+                booking_data: response.data.bookinghistory
             })
         })
         

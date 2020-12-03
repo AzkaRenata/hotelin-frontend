@@ -13,20 +13,19 @@ function Profile(props) {
         hotelFacility: [],
         isLoading: true
     });
-
-    const request1 = axios.get(API_BASE_URL+'/hotel/profile', { headers: { "Authorization": `Bearer ${localStorage.getItem(ACCESS_TOKEN_NAME)}`}});
-    const request2 = axios.get(API_BASE_URL+'/room/list', { headers: { "Authorization": `Bearer ${localStorage.getItem(ACCESS_TOKEN_NAME)}`}});
-    const request3 = axios.get(API_BASE_URL+'/hotel/facility', { headers: { "Authorization": `Bearer ${localStorage.getItem(ACCESS_TOKEN_NAME)}`}});
+    
     const fetchHotel = React.useCallback(() => {
-        axios.all([request1, request2, request3]).then(axios.spread((...responses) => {
+        axios.get(API_BASE_URL+'/hotel/profile', { headers: { "Authorization": `Bearer ${localStorage.getItem(ACCESS_TOKEN_NAME)}`}})
+        .then(response => {
             setHotel({
-                dataHotel: responses[0].data,
-                dataRoom: responses[1].data,
-                hotelFacility: responses[2].data
+                dataHotel: response.data.hotel,
+                dataRoom: response.data.room,
+                hotelFacility: response.data.facility
             })
-        }))
+            console.log(response.hotel)
+        })
         for(var i=0; i<5; i++){
-            setStar(<i class="fas fa-star color-icon"></i>);
+            setStar(<i className="fas fa-star color-icon"></i>);
         }
         console.log(state.dataHotel)
     })
@@ -50,9 +49,9 @@ function Profile(props) {
     }
     
   return (
-<div class="wrapper">
-    <div class=" main_content_left">
-        <b><div class="header">Profile Hotel</div></b> 
+<div className="wrapper">
+    <div className=" main_content_left">
+        <b><div className="header">Profile Hotel</div></b> 
         <div className="KamarDetails-detail">
             {
                 state.dataHotel.map(item => item.hotel_picture != null ?
@@ -78,17 +77,17 @@ function Profile(props) {
             } 
         </div>
     </div>
-    <div class=" main_content_right"> 
-        <div class="info">
-            <div class="text-right padding p-r-20">
+    <div className=" main_content_right"> 
+        <div className="info">
+            <div className="text-right padding p-r-20">
                 <b>
-                <button type="button" class="button" onClick={() => toEditProfile()}>Edit Profile</button>
+                <button type="button" className="button" onClick={() => toEditProfile()}>Edit Profile</button>
                 </b>
             </div>
-            <div class="card body mb-3">
-                <div class="card-body main_content">
-                    <b><p class="card-title title">{state.dataHotel.map(item => item.hotel_name)}</p></b>
-                    <i class="fas fa-map-marker-alt card-text"> {state.dataHotel.map(item => item.hotel_location)} </i><br></br>
+            <div className="card body mb-3">
+                <div className="card-body main_content">
+                    <b><p className="card-title title">{state.dataHotel.map(item => item.hotel_name)}</p></b>
+                    <i className="fas fa-map-marker-alt card-text"> {state.dataHotel.map(item => item.hotel_location)} </i><br></br>
                   
                     {
                         stars
@@ -102,14 +101,14 @@ function Profile(props) {
                     )}</b> 
                     <br></br>
                     <b>
-                        <p class="card-text color-price">{state.dataHotel.map(item => item.hotel_price
+                        <p className="card-text color-price">{state.dataHotel.map(item => item.hotel_price
                         != null ?
                         "Rp. "+item.hotel_price : " "
                         )}
                         </p>
                     </b>
-                        <b><p class="card-title">About Hotel</p></b>
-                        <p class="card-text">{state.dataHotel.map(item => item.hotel_desc)}</p>
+                        <b><p className="card-title">About Hotel</p></b>
+                        <p className="card-text">{state.dataHotel.map(item => item.hotel_desc)}</p>
                         {  
                             state.dataRoom.length != 0 ?
                                 <div>
