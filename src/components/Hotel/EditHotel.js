@@ -25,16 +25,15 @@ function EditHotel(props) {
         }))
     }
 
-    const request1 = axios.get(API_BASE_URL+'/hotel/profile', { headers: { "Authorization": `Bearer ${localStorage.getItem(ACCESS_TOKEN_NAME)}`}});
     const fetchHotel = React.useCallback(() => {
-        axios.all([request1]).then(axios.spread((...responses) => {
+        axios.get(API_BASE_URL+'/hotel/profile', { headers: { "Authorization": `Bearer ${localStorage.getItem(ACCESS_TOKEN_NAME)}`}})
+        .then(response => {
             setState({
-                hotel_name: responses[0].data[0].hotel_name,
-                hotel_location: responses[0].data[0].hotel_location,
-                hotel_desc: responses[0].data[0].hotel_desc
+                hotel_name: response.data.hotel[0].hotel_name,
+                hotel_location: response.data.hotel[0].hotel_location,
+                hotel_desc: response.data.hotel[0].hotel_desc
             })
-            console.log(state.hotel_name);
-        }))
+        })
     })
 
     useEffect(() => {

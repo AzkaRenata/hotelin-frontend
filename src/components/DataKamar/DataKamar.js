@@ -155,6 +155,7 @@ export class DataKamar extends Component {
                     tableData: slice
                 })
             });
+            console.log(this.state.tableData)
     }
 
 
