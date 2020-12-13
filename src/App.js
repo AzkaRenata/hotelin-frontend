@@ -8,9 +8,7 @@ import RoomForm from './components/DataKamar/RoomForm';
 import Sidebar from './components/Sidebar/Sidebar';
 import Pemesanan from './components/Pemesanan/Pemesanan';
 import DataKamar from './components/DataKamar/DataKamar';
-import Pembatalan from './components/Pembatalan/Pembatalan';
 import Profile from './components/Profile/Profile';
-import Histori from './components/Histori/Histori';
 import PrivateRoute from './utils/PrivateRoute';
 import {
   BrowserRouter as Router,
@@ -18,6 +16,7 @@ import {
   Route
 } from "react-router-dom";
 import AlertComponent from './components/AlertComponent/AlertComponent';  
+import api from "./api";
 
 function App() {
   const [activeMenu, updateMenu] = useState("/home/hotel");
@@ -41,12 +40,12 @@ function App() {
             <PrivateRoute path="/home">
               <Sidebar activeMenu={activeMenu} setMenu={updateMenu}/>
             </PrivateRoute>
+            <PrivateRoute path="/hotel/add" exact={true}>
+                <AddHotel showError={updateErrorMessage} setMenu={updateMenu} />
+              </PrivateRoute>
             <div className="home-content">
               <PrivateRoute path="/home/hotel" exact={true}>
                 <Profile showError={updateErrorMessage} setMenu={updateMenu} />
-              </PrivateRoute>
-              <PrivateRoute path="/hotel/add" exact={true}>
-                <AddHotel showError={updateErrorMessage} setMenu={updateMenu} />
               </PrivateRoute>
               <PrivateRoute path="/home/hotel/edit">
                 <EditHotel showError={updateErrorMessage} setMenu={updateMenu} />

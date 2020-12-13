@@ -9,6 +9,13 @@
   text-decoration: none;
   font-family: 'Open Sans', sans-serif;
 }
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
 
 .card{
   box-shadow: 0px 2px 15px rgba(0,0,0,0.2);

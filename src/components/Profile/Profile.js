@@ -11,23 +11,48 @@ function Profile(props) {
         dataHotel: [],
         dataRoom: [],
         hotelFacility: [],
-        isLoading: true
+        isLoading: true,
+        display: "hide"
     });
     
     const fetchHotel = React.useCallback(() => {
+        // try {
+        //     const req = api.getHotelProfile();
+        //     req.then(response => {
+        //         console.log(response.data);
+        //         setHotel({
+        //             dataHotel: response.data.hotel,
+        //             dataRoom: response.data.room,
+        //             hotelFacility: response.data.facility,
+        //             loading: false,
+        //             display: "show"
+        //         })
+        //         console.log(response.data.hotel)
+        //     })
+            
+        // } catch (error) {
+        //     console.error(error);
+        //     alert(error.response.data.error);
+        //     setHotel({
+        //         loading: false,
+        //         display: "show"
+        //     })
+        // }
         axios.get(API_BASE_URL+'/hotel/profile', { headers: { "Authorization": `Bearer ${localStorage.getItem(ACCESS_TOKEN_NAME)}`}})
         .then(response => {
             setHotel({
                 dataHotel: response.data.hotel,
                 dataRoom: response.data.room,
-                hotelFacility: response.data.facility
+                hotelFacility: response.data.facility,
+                loading: false,
+                display: "show"
             })
-            console.log(response.hotel)
+            console.log("Response profile : "+response.hotel)
         })
         for(var i=0; i<5; i++){
             setStar(<i className="fas fa-star color-icon"></i>);
         }
-        console.log(state.dataHotel)
+        console.log("DAta Hotel"+state.dataHotel)
     })
 
     const [stars, setStar] = useState([]);
@@ -49,7 +74,8 @@ function Profile(props) {
     }
     
   return (
-<div className="wrapper">
+<div className={`${state.display} wrapper`}>
+    {!state.loading && 
     <div className=" main_content_left">
         <b><div className="header">Profile Hotel</div></b> 
         <div className="KamarDetails-detail">
@@ -77,6 +103,8 @@ function Profile(props) {
             } 
         </div>
     </div>
+    }
+    {!state.loading && 
     <div className=" main_content_right"> 
         <div className="info">
             <div className="text-right padding p-r-20">
@@ -124,6 +152,7 @@ function Profile(props) {
             </div>
       </div>
     </div>
+    }
 </div>
  );
 }

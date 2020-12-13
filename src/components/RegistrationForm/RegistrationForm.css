@@ -6,7 +6,11 @@
     text-decoration: none;
     font-family: 'Open Sans', sans-serif;
 }
-
+.error-message{
+    color: red;
+    font-size: small;
+    margin-top: -15px;
+}
 .loginText {
     color: #007bff;
     font-weight: bold;
