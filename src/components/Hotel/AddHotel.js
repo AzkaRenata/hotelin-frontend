@@ -1,12 +1,12 @@
 import './AddHotel.css';
 
-import React, {useCallback} from 'react'
-import {useDropzone} from 'react-dropzone'
-import {Button, Form, Label, Input, FormGroup, Container, Row, Col} from 'reactstrap';
+import React from 'react'
+import {Button, Form, Input, FormGroup, Container, Row, Col} from 'reactstrap';
 import axios from 'axios';
 import {API_BASE_URL, ACCESS_TOKEN_NAME} from '../../constants/apiContants';
 import { withRouter } from "react-router-dom";
 import {useState} from 'react';
+import Dropzone from '../Dropzone/Dropzone';
 
 function AddHotel(props) {
 
@@ -24,12 +24,6 @@ function AddHotel(props) {
           [id] : value
       }))
   }
-
-  const onDrop = useCallback(acceptedFiles => {
-    // Do something with the files
-    setPicture(acceptedFiles[0]);
-  }, [])
-  const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop})
 
   const sendData = () => {
     if(state.hotel_name.length && state.hotel_location.length) {
@@ -99,21 +93,14 @@ function AddHotel(props) {
               <Input type="text" placeholder="Location" name="hotel_location" id="hotel_location" value={state.hotel_location} onChange={handleChange}/>
             </FormGroup>
             <FormGroup>
-              <Input type="text" placeholder="Description" name="hotel_desc" id="hotel_desc" value={state.hotel_desc} onChange={handleChange}/>
+              <Input type="textarea" placeholder="Description" name="hotel_desc" id="hotel_desc" value={state.hotel_desc} onChange={handleChange}/>
             </FormGroup>
             <Button className="create-hotel-btn" onClick={handleSubmitClick}>Add Data</Button>
           </Form>
       </div>
       </Col>
       <Col>
-      <div {...getRootProps()} className="create-hotel-dragndrop">
-        <input {...getInputProps()} />
-        {
-        isDragActive ?
-          <p>Drop the files here ...</p> :
-          <img src="../../down-arrow.png" className="upload-image"></img>
-        }
-      </div>
+      <Dropzone setPicture={setPicture}/>
       </Col>
       </Row>
     </Container>

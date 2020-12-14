@@ -60,7 +60,8 @@ export class Pemesanan extends PureComponent {
         axios
             .get(API_BASE_URL+`/booking/list/${status}`, { headers: { "Authorization": `Bearer ${localStorage.getItem(ACCESS_TOKEN_NAME)}`}})
             .then(res => {
-                var tdata = res.data;
+                console.log(res.data.status);
+                var tdata = res.data.booking;
                 console.log('data-->' + JSON.stringify(tdata))
                 var slice = tdata.slice(this.state.offset, this.state.offset + this.state.perPage)
                 this.setState({
