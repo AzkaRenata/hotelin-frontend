@@ -10,8 +10,10 @@ function RoomForm(props) {
 
     const [state , setState] = useState({
         room_id: "",
+        room_code: "",
         room_type : "",
         bed_type : "",
+        bed_count : "",
         room_price : "",
         guest_capacity : "",
         hotel_id: ""
@@ -58,12 +60,20 @@ function RoomForm(props) {
             props.showError(null);
             const formData = new FormData(); 
             formData.append( 
+                "room_code", 
+                state.room_code
+            ); 
+            formData.append( 
             "room_type", 
             state.room_type
             ); 
             formData.append( 
             "bed_type", 
             state.bed_type
+            ); 
+            formData.append( 
+                "bed_count", 
+                state.bed_count
             ); 
             formData.append( 
             "room_price", 
@@ -90,7 +100,7 @@ function RoomForm(props) {
                             ...prevState,
                             'successMessage' : 'Add Successfully. Redirecting to home page..'
                         }))
-                        redirectToHome();
+                        redirectToRoomFacility(state.room_id);
                         console.log(localStorage.getItem(ACCESS_TOKEN_NAME));
                         props.showError(null)
                     } else{
@@ -108,7 +118,9 @@ function RoomForm(props) {
                             ...prevState,
                             'successMessage' : 'Add Successfully. Redirecting to home page..'
                         }))
-                        redirectToHome();
+                        console.log(JSON.stringify(response.data.id));
+                        setState({room_id : response.data.id});
+                        redirectToRoomFacility(response.data.id);
                         console.log(localStorage.getItem(ACCESS_TOKEN_NAME));
                         props.showError(null)
                     } else{
@@ -125,9 +137,15 @@ function RoomForm(props) {
         }  
     }
 
-    const redirectToHome = () => {
-        props.setMenu('/home/kamar')
-        props.history.push('/home/kamar');
+    const redirectToRoomFacility = (id) => {
+        if(props.type == "add"){
+            props.setMenu('/home/kamar/');
+            props.history.push('/home/kamar/facility/add/'+id);
+        } else {
+            props.setMenu('/home/kamar/');
+            props.history.push('/home/kamar/facility/edit/'+state.room_id);
+        }
+        
     }
 
     const handleSubmitClick = (e) => {
@@ -144,10 +162,16 @@ function RoomForm(props) {
         <div className="create-hotel-form">
             <Form>
                 <FormGroup>
+                <Input type="text" placeholder="Room Code" name="room_code" id="room_code" value={state.room_code} onChange={handleChange}/>
+                </FormGroup>
+                <FormGroup>
                 <Input type="text" placeholder="Room Type" name="room_type" id="room_type" value={state.room_type} onChange={handleChange}/>
                 </FormGroup>
                 <FormGroup>
                 <Input type="text" placeholder="Bed Type" name="bed_type" id="bed_type" value={state.bed_type} onChange={handleChange}/>
+                </FormGroup>
+                <FormGroup>
+                <Input type="text" placeholder="Bed Count" name="bed_count" id="bed_count" value={state.bed_count} onChange={handleChange}/>
                 </FormGroup>
                 <FormGroup>
                 <Input type="text" placeholder="Guest Capacity" name="guest_capacity" id="guest_capacity" value={state.guest_capacity} onChange={handleChange}/>

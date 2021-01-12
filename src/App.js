@@ -8,6 +8,7 @@ import RoomForm from './components/DataKamar/RoomForm';
 import Sidebar from './components/Sidebar/Sidebar';
 import Pemesanan from './components/Pemesanan/Pemesanan';
 import DataKamar from './components/DataKamar/DataKamar';
+import FasilitasKamar from './components/FasilitasKamar/FasilitasKamar';
 import Profile from './components/Profile/Profile';
 import PrivateRoute from './utils/PrivateRoute';
 import {
@@ -58,6 +59,12 @@ function App() {
               </PrivateRoute>
               <PrivateRoute path="/home/kamar/edit/:id">
                 <RoomForm showError={updateErrorMessage} setMenu={updateMenu} type="edit"/>
+              </PrivateRoute>
+              <PrivateRoute path="/home/kamar/facility/add/:id">
+                <FasilitasKamar showError={updateErrorMessage} setMenu={updateMenu} type="add" />
+              </PrivateRoute>
+              <PrivateRoute path="/home/kamar/facility/edit/:id">
+                <FasilitasKamar showError={updateErrorMessage} setMenu={updateMenu} type="edit" />
               </PrivateRoute>
               <PrivateRoute path="/home/current-booking">
                 <Pemesanan status="1"/>
