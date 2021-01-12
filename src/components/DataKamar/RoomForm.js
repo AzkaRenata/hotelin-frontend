@@ -5,6 +5,7 @@ import axios from 'axios';
 import {API_BASE_URL, ACCESS_TOKEN_NAME} from '../../constants/apiContants';
 import { withRouter } from "react-router-dom";
 import {useState} from 'react';
+import Dropzone from '../Dropzone/Dropzone';
 
 function RoomForm(props) {
 
@@ -35,8 +36,10 @@ function RoomForm(props) {
                 .then(function (response) {
                     setState({
                         room_id: room_id,
+                        room_code: response.data.room_code,
                         room_type: response.data.room_type,
                         bed_type: response.data.bed_type,
+                        bed_count: response.data.bed_count,
                         guest_capacity: response.data.guest_capacity,
                         room_price: response.data.room_price,
                         hotel_id: response.data.hotel_id
@@ -44,7 +47,7 @@ function RoomForm(props) {
                     console.log(response.data);
                 })
                 .catch(function (error) {
-                    console.log(error);
+                    props.showError(error);
                 });
         }
     }, [])
@@ -139,10 +142,10 @@ function RoomForm(props) {
 
     const redirectToRoomFacility = (id) => {
         if(props.type == "add"){
-            props.setMenu('/home/kamar/');
+            props.setMenu('/home/kamar');
             props.history.push('/home/kamar/facility/add/'+id);
         } else {
-            props.setMenu('/home/kamar/');
+            props.setMenu('/home/kamar');
             props.history.push('/home/kamar/facility/edit/'+state.room_id);
         }
         
@@ -184,14 +187,7 @@ function RoomForm(props) {
         </div>
         </Col>
         <Col>
-        <div {...getRootProps()} className="create-hotel-dragndrop">
-            <input {...getInputProps()} />
-            {
-            isDragActive ?
-            <p>Drop the files here ...</p> :
-            <img src="../../../down-arrow.png" className="upload-image"></img>
-            }
-        </div>
+        <Dropzone setPicture={setPicture}/>
         </Col>
         </Row>
         </Container>

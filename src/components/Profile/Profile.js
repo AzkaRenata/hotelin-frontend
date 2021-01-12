@@ -91,9 +91,16 @@ function Profile(props) {
                 state.dataRoom.length != 0 ?
                 <div className="galleryItem">
                 {state.dataRoom.map(item =>
+                    item.room_picture != null ?
                     <div className="gallery">
-                        <a target="_blank" href="living room.jpg">
+                        <a href="javascript:void(0)">
                             <img src={IMAGE_URL + item.room_picture}></img>
+                        </a>
+                    </div>
+                    :
+                    <div className="gallery">
+                        <a href="javascript:void(0)">
+                            <img src="../../hotel1.jpg"></img>
                         </a>
                     </div>
                 )} 

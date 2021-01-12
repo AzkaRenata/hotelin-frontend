@@ -168,7 +168,7 @@ export class DataKamar extends Component {
                 <div className="col-10">
                     <div class="row title-row">
                         <div class="col-6">
-                            <h2 class="title">Data Kamar</h2>
+                            <h3 class="title">Daftar Kamar</h3>
                         </div>
                         <div class="col-6">
                             <button class="add-room-btn" onClick={this.toAddKamar}>
@@ -178,9 +178,10 @@ export class DataKamar extends Component {
                     </div>
                     <table className="table">
                         <thead className="table-active">
+                            <th scope="col">Kode Kamar</th>
                             <th scope="col">Tipe Kamar</th>
-                            <th scope="col">Harga</th>
                             <th scope="col">Kapasitas Kamar</th>
+                            <th scope="col">Harga</th>
                             <th scope="col">Action</th>
 
                         </thead>
@@ -188,9 +189,10 @@ export class DataKamar extends Component {
                             {
                                 this.state.tableData.map((tdata, i) => (
                                     <tr>
+                                        <td>{tdata.room_code}</td>
                                         <td>{tdata.room_type}</td>
-                                        <td>{tdata.room_price}</td>
                                         <td>{tdata.guest_capacity}</td>
+                                        <td>{tdata.room_price}</td>
                                         <td>
                                             <Link onClick={() => this.showRoom(tdata.id)}><img src={eyecloseupimg}/></Link>&nbsp;
                                             <Link to={`/home/kamar/edit/${tdata.id}`}><img src={pencilimg}/></Link>&nbsp;
