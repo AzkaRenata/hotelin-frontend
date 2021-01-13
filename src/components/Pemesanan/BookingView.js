@@ -43,10 +43,16 @@ class RoomView extends Component {
                     </div>
                     <div className="modal-body">
                         <h6><b>User :</b> {booking_data.name}</h6>
+                        <h6><b>Email :</b> </h6>
+                        <h6><b>Phone Number :</b> </h6>
                         <h6><b>Kamar : </b>{booking_data.room_type}</h6>
                         <h6><b>Status Booking:</b> {booking_data.booking_status}</h6>
                         <h6><b>Check In: </b>{booking_data.check_in}</h6>
                         <h6><b>Check Out :</b> {booking_data.check_out}</h6>
+                        <h6><b>Duration :</b> </h6>
+                        <h6><b>Room Code :</b> </h6>
+                        <h6><b>Order Date :</b> </h6>
+                        <h6><b>Total Price :</b> </h6>
                     </div>
                     <div className="modal-footer">
                         <button type="button" onClick={this.props.onCancel} className="btn btn-secondary">Close</button>
