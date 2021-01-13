@@ -16,7 +16,6 @@ export class FasilitasKamar extends Component {
             desc3: "",
             desc4: "",
         }
-
     }
   componentWillMount = () => {
     this.selectedCheckboxes = new Set();
@@ -30,7 +29,7 @@ export class FasilitasKamar extends Component {
         ...prevState,
         [id] : value
     }))
-}
+  }
 
   toggleCheckbox = (label, id) => {
     if (this.selectedCheckboxes.has(id)) {
@@ -40,18 +39,18 @@ export class FasilitasKamar extends Component {
     }
   }
 
-  handleFormSubmit = formSubmitEvent => {
+  handleFormSubmit = formSubmitEvent =>{
     formSubmitEvent.preventDefault();
 
     this.sendData();
   }
  
-  redirectToHome = () => {
+  redirectToRoomList() {
     this.props.setMenu('/home/kamar')
     this.props.history.push('/home/kamar');
   }
   
-  sendData = () => {
+  sendData() {
     if(this.selectedCheckboxes.size > 0) {
       const formData = new FormData(); 
       for (const checkbox of this.selectedCheckboxes) {
@@ -96,19 +95,18 @@ export class FasilitasKamar extends Component {
       } 
       if(this.props.type == "add"){ 
         axios.post(API_BASE_URL+'/room-facility/create-many/'+this.props.match.params.id, formData, { headers: { "Authorization": `Bearer ${localStorage.getItem(ACCESS_TOKEN_NAME)}`}})
-        .then(function (response) {
+        .then(response =>  {
             if(response.status === 201 || response.status === 200){
                 // setState(prevState => ({
                 //     ...prevState,
                 //     'successMessage' : 'Add Successfully. Redirecting to home page..'
                 // }))
                 console.log(JSON.stringify(response.data.id));
-                this.redirectToHome();
-                //redirectToRoomFacility();
+                this.redirectToRoomList();
                 console.log(localStorage.getItem(ACCESS_TOKEN_NAME));
                 //props.showError(null)
             } else{
-                //props.showError("Some error ocurred");
+                this.props.showError("Some error ocurred");
             }
         })
         .catch(function (error) {
@@ -116,74 +114,83 @@ export class FasilitasKamar extends Component {
         });  
       } else {
         axios.post(API_BASE_URL+'/room-facility/update-many/'+this.state.room_id, formData, { headers: { "Authorization": `Bearer ${localStorage.getItem(ACCESS_TOKEN_NAME)}`}})
-        .then(function (response) {
+        .then(response =>  {
             if(response.status === 201 || response.status === 200){
                 // setState(prevState => ({
                 //     ...prevState,
                 //     'successMessage' : 'Add Successfully. Redirecting to home page..'
                 // }))
-                //this.redirectToHome();
-                this.props.setMenu('/home/kamar')
-                this.props.history.push('/home/kamar');
+                console.log(JSON.stringify(response.data));
+                this.redirectToRoomList();
                 console.log(localStorage.getItem(ACCESS_TOKEN_NAME));
                 //props.showError(null)
             } else{
-                //props.showError("Some error ocurred");
+                this.props.showError("Some error ocurred");
             }
         })
         .catch(function (error) {
-            console.log(error);
+          this.props.showError(error);
         });  
       }
     } else {
-        //props.showError('Error')    
+        this.props.showError('Field Tidak Boleh Kosong')    
     }  
-}
+  }
 
   render() {
     return (
       <Container>
-      <h2>Fasilitas Kamar</h2>
+      <h2 className="title-row">Fasilitas Kamar</h2>
       <Row>
-      <Col>
+      <Col md="1"></Col>
+      <Col md="8">
       <div>
           <Form>
               <FormGroup>
+              <b>
               <Checkbox
                 label="Free Wifi"
                 handleCheckboxChange={this.toggleCheckbox}
                 id="1"
               />
-              <Input type="text" placeholder="Deskripsi" name="desc1" id="desc1" value={this.state.desc1} onChange={this.handleChange}/>
+              </b>
+              <Input type="textarea" placeholder="Deskripsi Wifi" name="desc1" id="desc1" value={this.state.desc1} onChange={this.handleChange}/>
               </FormGroup>
               <FormGroup>
+              <b>
               <Checkbox
                 label="Sarapan"
                 handleCheckboxChange={this.toggleCheckbox}
                 id="2"
               />
-              <Input type="text" placeholder="Deskripsi" name="desc2" id="desc2" onChange={this.handleChange} checked={this.state.checked3}/>
+              </b>
+              <Input type="textarea" placeholder="Deskripsi Sarapan" name="desc2" id="desc2" onChange={this.handleChange} checked={this.state.checked3}/>
               </FormGroup>
               <FormGroup>
+              <b>
               <Checkbox
-                label="AC"
+                label="Air Conditioner"
                 handleCheckboxChange={this.toggleCheckbox}
                 id="3"
               />
-              <Input type="text" placeholder="Deskripsi" name="desc3" id="desc3" value={this.state.desc3} onChange={this.handleChange}/>
+              </b>
+              <Input type="textarea" placeholder="Deskripsi AC" name="desc3" id="desc3" value={this.state.desc3} onChange={this.handleChange}/>
               </FormGroup>
               <FormGroup>
+              <b>
               <Checkbox
-                label="TV"
+                label="Televisi"
                 handleCheckboxChange={this.toggleCheckbox}
                 id="4"
               />
-              <Input type="text" placeholder="Deskripsi" name="desc4" id="desc4" value={this.state.desc4} onChange={this.handleChange}/>
+              </b>
+              <Input type="textarea" placeholder="Deskripsi TV" name="desc4" id="desc4" value={this.state.desc4} onChange={this.handleChange}/>
               </FormGroup>
               <Button className="create-hotel-btn" onClick={this.handleFormSubmit}>Save Data</Button>
           </Form>
       </div>
       </Col>
+      <Col md="3"></Col>
       </Row>
       </Container>
     );

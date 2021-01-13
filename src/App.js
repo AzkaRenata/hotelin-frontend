@@ -67,13 +67,13 @@ function App() {
                 <FasilitasKamar showError={updateErrorMessage} setMenu={updateMenu} type="edit" />
               </PrivateRoute>
               <PrivateRoute path="/home/current-booking">
-                <Pemesanan status="1"/>
+                <Pemesanan status="1" title="Pengunjung Saat Ini"/>
               </PrivateRoute>
               <PrivateRoute path="/home/history-booking">
-                <Pemesanan status="2"/>
+                <Pemesanan status="2" title="Riwayat Pemesanan"/>
               </PrivateRoute>
               <PrivateRoute path="/home/cancel-booking">
-                <Pemesanan status="3"/>
+                <Pemesanan status="3" title="Riwayat Pembatalan"/>
               </PrivateRoute>
               <PrivateRoute path="/home/logout">
                 

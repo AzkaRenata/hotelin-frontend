@@ -164,7 +164,7 @@ export class Pemesanan extends PureComponent {
                 <div className="col-10">
                     <div class="row title-row">
                         <div class="col-6">
-                            <h2 class="title">Daftar Tamu Saat Ini</h2>
+                            <h3 class="title">{this.props.title}</h3>
                         </div>
                         <div class="col-6">  
                         </div>
@@ -172,9 +172,9 @@ export class Pemesanan extends PureComponent {
                     <table className="table">
                         <thead className="table-active">
                         <th scope="col">Nama Pemesan</th>
+                        <th scope="col">Kode Kamar</th>
                           <th scope="col">Check-In</th>
-                          <th scope="col">Tipe Kamar</th>
-                          <th scope="col">Harga</th>
+                          <th scope="col">Check-Out</th>
                           <th scope="col">Action</th>
 
                         </thead>
@@ -183,9 +183,9 @@ export class Pemesanan extends PureComponent {
                                 this.state.tableData.map((tdata, i) => (
                                     <tr>
                                         <td>{tdata.name}</td>
+                                        <td>{tdata.room_code}</td>
                                         <td>{tdata.check_in}</td>
-                                        <td>{tdata.room_type}</td>
-                                        <td>{tdata.room_price}</td>
+                                        <td>{tdata.check_out}</td>
                                         <td>
                                             <Link onClick={() => this.showOnGoingBooking(tdata.id)}><img src={eyecloseupimg}/></Link>&nbsp;
                                             <Link onClick={() => this.confirmDelete(tdata.id)}><img src={deleteimg}/></Link></td>

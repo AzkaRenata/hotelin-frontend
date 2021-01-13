@@ -36,21 +36,27 @@ function Sidebar(props) {
         <div class="text-center padding">
             <img src="../../logo-rev-white.png" class="logo" alt="picture" ></img>
         </div>
-        <ul>
+        <ul className="my-sidebar">
             <b>
-                {/* <li className={activeLink === "/home/hotel" || props.activeMenu === "/home/hotel" ? "page" : ""}><a href="javascript:void(0)" onClick={() => toProfile()}><i class=""></i>Profile</a></li>
-                <li className={activeLink === "/home/kamar" || props.activeMenu === "/home/kamar" ? "page" : ""}><a href="javascript:void(0)" onClick={() => toKamar()}><i class=""></i>List Kamar</a></li>
-                <li className={activeLink === "/home/current-booking" || props.activeMenu === "/home/current-booking" ? "page" : ""}><a href="javascript:void(0)" onClick={() => toCurrentBooking()}><i class=""></i>Pengunjung</a></li>
-                <li className={activeLink === "/home/history-booking" || props.activeMenu === "/home/history-booking" ? "page" : ""}><a href="javascript:void(0)" onClick={() => toHistoryBooking()}><i class=""></i>Histori Booking</a></li>
-                <li className={activeLink === "/home/cancel-booking" || props.activeMenu === "/home/cancel-booking" ? "page" : ""}><a href="javascript:void(0)" onClick={() => toCancelBooking()}><i class=""></i>Pembatalan</a></li>
-                <li><a href="javascript:void(0)" onClick={() => handleLogout()}><i class=""></i>Logout</a></li> */}
-                <li className={props.activeMenu === "/home/hotel" ? "page" : ""}><a href="javascript:void(0)" onClick={() => toProfile()}><i class=""></i>Profile</a></li>
+                <li className={props.activeMenu === "/home/hotel" ? "page" : ""}>
+                    <a href="javascript:void(0)" onClick={() => toProfile()}><i class=""></i>Profile</a>
+                </li>
                 {/* <li className={props.activeMenu === "/home/hotel" ? "page" : ""}><Link to="/home/hotel"><i class=""></i>Profile</Link></li> */}
-                <li className={props.activeMenu === "/home/kamar" ? "page" : ""}><a href="javascript:void(0)" onClick={() => toKamar()}><i class=""></i>List Kamar</a></li>
-                <li className={props.activeMenu === "/home/current-booking" ? "page" : ""}><a href="javascript:void(0)" onClick={() => toCurrentBooking()}><i class=""></i>Pengunjung</a></li>
-                <li className={props.activeMenu === "/home/history-booking" ? "page" : ""}><a href="javascript:void(0)" onClick={() => toHistoryBooking()}><i class=""></i>Histori Booking</a></li>
-                <li className={props.activeMenu === "/home/cancel-booking" ? "page" : ""}><a href="javascript:void(0)" onClick={() => toCancelBooking()}><i class=""></i>Pembatalan</a></li>
-                <li><a href="javascript:void(0)" onClick={() => handleLogout()}><i class=""></i>Logout</a></li>
+                <li className={props.activeMenu === "/home/kamar" ? "page" : ""}>
+                    <a href="javascript:void(0)" onClick={() => toKamar()}><i class=""></i>Kamar</a>
+                </li>
+                <li className={props.activeMenu === "/home/current-booking" ? "page" : ""}>
+                    <a href="javascript:void(0)" onClick={() => toCurrentBooking()}><i class=""></i>Pengunjung</a>
+                </li>
+                <li className={props.activeMenu === "/home/history-booking" ? "page" : ""}>
+                    <a href="javascript:void(0)" onClick={() => toHistoryBooking()}><i class=""></i>Pemesanan</a>
+                </li>
+                <li className={props.activeMenu === "/home/cancel-booking" ? "page" : ""}>
+                    <a href="javascript:void(0)" onClick={() => toCancelBooking()}><i class=""></i>Pembatalan</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" onClick={() => handleLogout()}><i class=""></i>Logout</a>
+                </li>
             </b>
         </ul> 
     </div>

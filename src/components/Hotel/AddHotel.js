@@ -81,21 +81,21 @@ function AddHotel(props) {
   return (
     <div className="create-hotel">
     <Container>
-      <h2>Add Data Hotel</h2>
+      <h2>Tambah Data Hotel</h2>
       <Row>
       <Col>
       <div className="create-hotel-form">
           <Form>
             <FormGroup>
-              <Input type="text" placeholder="Hotel Name" name="hotel_name" id="hotel_name" value={state.hotel_name} onChange={handleChange}/>
+              <Input type="text" placeholder="Nama Hotel" name="hotel_name" id="hotel_name" value={state.hotel_name} onChange={handleChange}/>
             </FormGroup>
             <FormGroup>
-              <Input type="text" placeholder="Location" name="hotel_location" id="hotel_location" value={state.hotel_location} onChange={handleChange}/>
+              <Input type="text" placeholder="Lokasi Hotel" name="hotel_location" id="hotel_location" value={state.hotel_location} onChange={handleChange}/>
             </FormGroup>
             <FormGroup>
-              <Input type="textarea" placeholder="Description" name="hotel_desc" id="hotel_desc" value={state.hotel_desc} onChange={handleChange}/>
+              <Input type="textarea" placeholder="Deskripsi Hotel" name="hotel_desc" id="hotel_desc" value={state.hotel_desc} onChange={handleChange}/>
             </FormGroup>
-            <Button className="create-hotel-btn" onClick={handleSubmitClick}>Add Data</Button>
+            <Button className="create-hotel-btn" onClick={handleSubmitClick}>SIMPAN</Button>
           </Form>
       </div>
       </Col>

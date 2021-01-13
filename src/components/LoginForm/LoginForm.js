@@ -93,7 +93,7 @@ function LoginForm(props) {
                 <div className="wrap-login100-form-btn">
                   <div className="login100-form-bgbtn"></div>
                   <button className="login100-form-btn w-full sign-in-btn" onClick={handleSubmitClick}>
-                    Sign in
+                    LOGIN
                   </button>
                 </div>
               </div>

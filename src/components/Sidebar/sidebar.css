@@ -96,3 +96,7 @@ a{
 a:active {
   background-color: #fff !important;
 }
+
+.my-sidebar li a {
+  margin-left: 60px;
+}
