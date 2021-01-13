@@ -1,0 +1,47 @@
+body{
+    background: white;
+}
+
+.aboutus{
+    margin-top: 50px;
+    padding: 10px;
+}
+
+.aboutus h5{
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.info{
+    position: relative;
+}
+
+.info img{
+    margin-bottom: 50px;
+}
+
+.info .logo-img1{
+    height: 80%;
+    width: 80%;
+    max-width: 300px;
+    max-height: 40px;
+}
+
+.info .logo-img2{
+    height: 80%;
+    width: 80%;
+    max-width: 60px;
+    max-height: 40px;
+}
+
+.info .logo-img3{
+    height: 80%;
+    width: 80%;
+    max-width: 50px;
+    max-height: 40px;
+}
+
+.info p{
+    font-size: 13px;
+}
