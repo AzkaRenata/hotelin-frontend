@@ -174,13 +174,13 @@ function RoomForm(props) {
                 <Input type="text" placeholder="Bed Type" name="bed_type" id="bed_type" value={state.bed_type} onChange={handleChange}/>
                 </FormGroup>
                 <FormGroup>
-                <Input type="text" placeholder="Bed Count" name="bed_count" id="bed_count" value={state.bed_count} onChange={handleChange}/>
+                <Input type="number" placeholder="Bed Count" name="bed_count" id="bed_count" value={state.bed_count} onChange={handleChange}/>
                 </FormGroup>
                 <FormGroup>
-                <Input type="text" placeholder="Guest Capacity" name="guest_capacity" id="guest_capacity" value={state.guest_capacity} onChange={handleChange}/>
+                <Input type="number" placeholder="Guest Capacity" name="guest_capacity" id="guest_capacity" value={state.guest_capacity} onChange={handleChange}/>
                 </FormGroup>
                 <FormGroup>
-                <Input type="text" placeholder="Room Price" name="room_price" id="room_price" value={state.room_price} onChange={handleChange}/>
+                <Input type="number" placeholder="Room Price" name="room_price" id="room_price" value={state.room_price} onChange={handleChange}/>
                 </FormGroup>
                 <Button className="create-hotel-btn" onClick={handleSubmitClick}>Save Data</Button>
             </Form>
