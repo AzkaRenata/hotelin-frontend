@@ -24,6 +24,10 @@ function Sidebar(props) {
         props.setMenu("/home/cancel-booking");
         props.history.push('/home/cancel-booking'); 
     }
+    const toAboutUs= () => {
+        props.setMenu("/home/about-us");
+        props.history.push('/home/about-us'); 
+    }
     function handleLogout() {
         localStorage.removeItem(ACCESS_TOKEN_NAME)
         props.history.push('/login')
@@ -53,6 +57,9 @@ function Sidebar(props) {
                 </li>
                 <li className={props.activeMenu === "/home/cancel-booking" ? "page" : ""}>
                     <a href="javascript:void(0)" onClick={() => toCancelBooking()}><i class=""></i>Pembatalan</a>
+                </li>
+                <li className={props.activeMenu === "/home/about-us" ? "page" : ""}>
+                    <a href="javascript:void(0)" onClick={() => toAboutUs()}><i class=""></i>About Us</a>
                 </li>
                 <li>
                     <a href="javascript:void(0)" onClick={() => handleLogout()}><i class=""></i>Logout</a>
