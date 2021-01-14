@@ -3,23 +3,30 @@ import axios from 'axios';
 import './LoginForm.css';
 import {API_BASE_URL, ACCESS_TOKEN_NAME} from '../../constants/apiContants';
 import { withRouter } from "react-router-dom";
+import {useFormik} from "formik";
+import * as Yup from "yup";
 
 function LoginForm(props) {
+    const validationSchema = Yup.object().shape({
+      email: Yup.string().required("* required").email("* email must be a valid email"),
+      password: Yup.string().required("* required").min(8),
+    })
+    const{ handleSubmit, handleChange, handleBlur, values, errors, touched, isValid } = useFormik({
+      initialValues:{
+          email : "",
+          password : ""
+      },
+      validationSchema,
+      onSubmit(values){
+          console.log(values);
+          sendData(values);
+      }
+    })
     const [state , setState] = useState({
-        email : "",
-        password : "",
         successMessage: null
     })
-    const handleChange = (e) => {
-        const {id , value} = e.target   
-        setState(prevState => ({
-            ...prevState,
-            [id] : value
-        }))
-    }
 
-    const handleSubmitClick = (e) => {
-        e.preventDefault();
+    const sendData = (state) => {
         const payload={
             "email":state.email,
             "password":state.password,
@@ -33,17 +40,19 @@ function LoginForm(props) {
                     }))
                     localStorage.setItem(ACCESS_TOKEN_NAME,response.data.token);
                     redirectToHome();
-                    props.showError(null)
-                }
-                else if(response.status === 400){
-                    props.showError("Username and password do not match");
-                }
-                else{
-                    props.showError("Username does not exists");
-                }
+                    props.showError(null);
+                  }
             })
             .catch(function (error) {
-                console.log(error);
+              console.log(error);
+              if(error.response.status === 400){
+                  props.showError("Username/Email Tidak Ditemukan");
+              }
+              else if(error.response.status === 401){
+                  props.showError("Password Salah");
+              } else {
+                  props.showError("Internal Server Error");
+              }
             });
     }
     const redirectToHome = () => {
@@ -60,7 +69,7 @@ function LoginForm(props) {
         <div className="container-login100">
           <div className="login100-more"></div>
           <div className="wrap-login100 p-l-50 p-r-50 p-t-72 p-b-50">
-            <form className="login100-form validate-form">
+            <form className="login100-form validate-form" onSubmit={handleSubmit}>
               <div className="p-b-59 w-full text-center">
                 <span className="login100-form-title text-blue title">
                   LOGIN
@@ -79,20 +88,22 @@ function LoginForm(props) {
 
               <div className="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
                 <input className="input100" type="email" name="email" placeholder="Email addess..." 
-                id="email" value={state.email} onChange={handleChange}/>
+                id="email" value={values.email} onChange={handleChange} onBlur={handleBlur}/>
                 <span className="focus-input100"></span>
               </div>
+              <span className="error-message">{touched.email && errors.email ? errors.email : null}</span>
 
               <div className="wrap-input100 validate-input" data-validate = "Password is required">
-                <input className="input100" type="password" name="pass" placeholder="Password"
-                id="password" value={state.password} onChange={handleChange} />
+              <input className="input100" type="password" name="password" placeholder="Password"
+                id="password" value={values.password} onChange={handleChange} onBlur={handleBlur}/>
                 <span className="focus-input100"></span>
               </div>
+              <span className="error-message">{touched.password && errors.password ? errors.password : null}</span>
 
               <div className="container-login100-form-btn m-t-59">
                 <div className="wrap-login100-form-btn">
                   <div className="login100-form-bgbtn"></div>
-                  <button className="login100-form-btn w-full sign-in-btn" onClick={handleSubmitClick}>
+                  <button className="login100-form-btn w-full sign-in-btn" disabled={!isValid}>
                     LOGIN
                   </button>
                 </div>

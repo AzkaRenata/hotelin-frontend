@@ -1,4 +1,8 @@
 .alertMessage {
-    min-width: 200px;
+    max-width: 100%;
     justify-content: space-between;
+}
+#alertPopUp {
+    max-width: 60%;
+    margin: auto auto;
 }

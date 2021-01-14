@@ -7,7 +7,9 @@ class RoomView extends Component {
     constructor (props) {
         super(props)
         this.state = {
-            booking_data: {}
+            user: {},
+            room: {},
+            booking: {}
         }
     }
 
@@ -15,44 +17,63 @@ class RoomView extends Component {
         //const room_id = this.props.match.params.id;
         const booking_id = this.props.booking_id;
         console.log(booking_id);
-        axios.get(API_BASE_URL+`/booking/show/${booking_id}`,{ headers: { "Authorization": `Bearer ${localStorage.getItem(ACCESS_TOKEN_NAME)}`}})
+        axios.get(API_BASE_URL+`/booking/detail/${booking_id}`,{ headers: { "Authorization": `Bearer ${localStorage.getItem(ACCESS_TOKEN_NAME)}`}})
         .then(response => {
+            console.log(response.data);
             this.setState({
-                booking_data: response.data.bookinghistory
+                user: response.data.user,
+                room: response.data.room,
+                booking: response.data.booking
             })
         })
         
     }
 
-    // editRoom(id){
-    //     this.props.onCancel();
-    //     this.props.history.push(`/home/kamar/edit/${id}`);
-    // }
     render () {
-    const { booking_data } = this.state
     return (
         <div className="">
         <div className='modal' style={{ display: 'block' }} aria-hidden="true">
             <div className='modal-dialog modal-dialog-scrollable modal-dialog-centered'>
                 <div className='modal-content'>
                     <div className='modal-header'>
-                        <h5 className="modal-title">{booking_data.title}</h5>
+                        <h5 className="modal-title">Detail Pemesanan</h5>
                         <button type="button" className="close" onClick={this.props.onCancel} data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div className="modal-body">
-                        <h6><b>User :</b> {booking_data.name}</h6>
-                        <h6><b>Email :</b> </h6>
-                        <h6><b>Phone Number :</b> </h6>
-                        <h6><b>Kamar : </b>{booking_data.room_type}</h6>
-                        <h6><b>Status Booking:</b> {booking_data.booking_status}</h6>
-                        <h6><b>Check In: </b>{booking_data.check_in}</h6>
-                        <h6><b>Check Out :</b> {booking_data.check_out}</h6>
-                        <h6><b>Duration :</b> </h6>
-                        <h6><b>Room Code :</b> </h6>
-                        <h6><b>Order Date :</b> </h6>
-                        <h6><b>Total Price :</b> </h6>
+                        <div style={{ border: '1px solid black' }}>
+                            { 
+                            this.state.user.user_picture != null ? 
+                            <img src={IMAGE_URL+this.state.user.user_picture} style={{ width: '95%' }} />
+                            :
+                            <img src="../../user_photo.png" style={{ width: '95%' }} />
+                            }
+                        </div>
+                        <h6><b>User :</b> {this.state.user.name}</h6>
+                        <h6><b>Email :</b> {this.state.user.email}</h6>
+                        <h6><b>Nomer Telp :</b> {this.state.user.telp}</h6>
+                        <hr></hr>
+                        <h6><b>Status Booking:</b> 
+                            {(() => {
+                                switch (this.state.booking.booking_status) {
+                                    case 1:
+                                        return " Ongoing"
+                                        break;
+                                    case 2:
+                                        return " Done"
+                                        break;
+                                    default:
+                                        return " Cancelled"
+                                        break;
+                                }
+                            })()}
+                        </h6>
+                        <h6><b>Check In: </b>{this.state.booking.check_in}</h6>
+                        <h6><b>Check Out :</b> {this.state.booking.check_out}</h6>
+                        <h6><b>Lama Menginap :</b></h6>
+                        <h6><b>Tanggal Pemesanan :</b>{this.state.booking.booking_time}</h6>
+                        <h6><b>Total Harga :</b> {this.state.booking.total_price}</h6>
                     </div>
                     <div className="modal-footer">
                         <button type="button" onClick={this.props.onCancel} className="btn btn-secondary">Close</button>

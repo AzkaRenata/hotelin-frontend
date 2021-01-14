@@ -70,12 +70,14 @@ function RegistrationForm(props) {
                     }))
                     localStorage.setItem(ACCESS_TOKEN_NAME,response.data.token);
                     toHotelForm();
-                } else{
-                    props.showError("Some error ocurred");
                 }
             })
             .catch(function (error) {
-                props.showError(error)
+                if(error.response.status === 400){
+                    props.showError("Ada Input Data Yang Salah")
+                } else {
+                    props.showError("Internal Server Error")
+                }
             });    
         
     }
