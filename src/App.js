@@ -26,6 +26,7 @@ function App() {
   return (
     <Router>
     <div className="App">
+    <AlertComponent errorMessage={errorMessage} hideError={updateErrorMessage}/>
         <Switch>
           <Route path="/" exact={true}>
             <LoginForm showError={updateErrorMessage} setMenu={updateMenu}/>     
@@ -81,7 +82,6 @@ function App() {
             </div>
           </div>
         </Switch>
-        <AlertComponent errorMessage={errorMessage} hideError={updateErrorMessage}/>
   </div>
   </Router>
   );
