@@ -53,8 +53,9 @@ function Profile(props) {
     
   return (
 <div className={`${state.display} wrapper`}>
+    <div className="row">
     {!state.loading && 
-    <div className=" main_content_left">
+    <div className="col-lg-6">
         <b><div className="header">Profile Hotel</div></b> 
         <div className="KamarDetails-detail">
             {
@@ -89,7 +90,7 @@ function Profile(props) {
     </div>
     }
     {!state.loading && 
-    <div className=" main_content_right"> 
+    <div className="col-lg-6"> 
         <div className="info">
             <div className="text-right padding p-r-20">
                 <b>
@@ -137,6 +138,7 @@ function Profile(props) {
       </div>
     </div>
     }
+    </div>
 </div>
  );
 }

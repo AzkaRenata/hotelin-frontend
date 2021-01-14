@@ -25,6 +25,7 @@
   max-height: 100vh;
   border-radius: 10px;
   background-color:#fff;
+  margin-top: 20px;
 }
 
 .padding-icon{
@@ -289,3 +290,9 @@ div.gallery img {
   font-weight: bold;
 
 }
+
+.KamarDetails-detail{
+  margin-top: 20px;
+}
+
+
