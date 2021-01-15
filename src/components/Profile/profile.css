@@ -25,8 +25,17 @@
   max-height: 100vh;
   border-radius: 10px;
   background-color:#fff;
+  font-size: 1.5rem;
 }
-
+.card-title{
+  font-size: 1.5rem;
+}
+.card-title-md{
+  font-size: 1.2rem;
+}
+.card-text{
+  font-size: 15px;
+}
 .padding-icon{
   padding-right: 50px;
   padding-bottom: 5px;
@@ -40,6 +49,11 @@
 
 .color-icon{
   color: yellow;
+  padding-top: 10px;
+  
+}
+.color-icon-dark{
+  color: grey;
   padding-top: 10px;
   
 }
@@ -94,6 +108,7 @@ body{
     padding: 10px 28px;
     text-align: center;
     font-size: 14px;
+    font-weight: bold;
 }
 
 .padding{
@@ -150,15 +165,13 @@ body{
     color: #717171;
 }
 
-
-
-.wrapper .main_content .info{
+.wrapper .main_content .profile-info{
   margin: 20px;
   color: #717171;
   line-height: 25px;
 }
 
-.wrapper .main_content .info div{
+.wrapper .main_content .profile-info div{
   margin-bottom: 20px;
 }
 
@@ -175,6 +188,10 @@ body{
 .col-11 {width: 91.66%;}
 .col-12 {width: 100%;}
 
+.padding-r-30{
+  padding-right: 25px;
+  margin-top: 25px;
+}
 .title-row{
   padding-top: 20px;
   padding-bottom: 20px;
@@ -252,7 +269,7 @@ div.gallery img {
 }
 
 .main_content_right{
-  text-align: center;
+  text-align: left;
   padding-top: 20px;
   padding-left: 10px;
   width: 100%;

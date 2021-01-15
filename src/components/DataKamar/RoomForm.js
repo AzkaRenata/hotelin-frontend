@@ -83,8 +83,6 @@ function RoomForm(props) {
     const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop})
 
     const sendData = () => {
-        if(state.room_code.length && state.room_type.length && state.bed_type.length 
-            && state.bed_count.length && state.room_price.length && state.guest_capacity.length){
             props.showError(null);
             const formData = new FormData(); 
             formData.append( 
@@ -162,9 +160,6 @@ function RoomForm(props) {
                     console.log(error);
                 });  
             }
-        } else {
-            props.showError("Pastika semua input terisi degan benar");
-        }
     }
 
     const redirectToRoomFacility = (id) => {
