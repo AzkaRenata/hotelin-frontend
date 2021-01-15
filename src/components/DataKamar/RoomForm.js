@@ -8,7 +8,14 @@ import {useState} from 'react';
 import Dropzone from '../Dropzone/Dropzone';
 
 function RoomForm(props) {
-
+    // const validationSchema = Yup.object().shape({
+    //     room_code: Yup.string().required("* required").max(50),
+    //     room_type: Yup.string().required("* required").max(50),
+    //     bed_type: Yup.string().required("* required").max(50),
+    //     bed_count: Yup.number().required("* required").max(10),
+    //     room_price: Yup.number().required("* required").max(50),
+    //     guest_capacity: Yup.number().required("* required").max(4),
+    // })
     const [state , setState] = useState({
         room_id: "",
         room_code: "",
@@ -19,6 +26,23 @@ function RoomForm(props) {
         guest_capacity : "",
         hotel_id: ""
     });
+    // const{ handleSubmit, handleChange, handleBlur, values, errors, touched, isValid } = useFormik({
+    //     initialValues:{
+    //         room_id: "",
+    //         room_code: "",
+    //         room_type : "",
+    //         bed_type : "",
+    //         bed_count : "",
+    //         room_price : "",
+    //         guest_capacity : "",
+    //         hotel_id: ""
+    //     },
+    //     validationSchema,
+    //     onSubmit(values){
+    //         console.log(values);
+    //         sendData(values);
+    //     }
+    // })
     const [room_picture, setPicture] = useState(null);
 
     const handleChange = (e) => {
@@ -59,7 +83,8 @@ function RoomForm(props) {
     const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop})
 
     const sendData = () => {
-        if(state.room_type.length) {
+        if(state.room_code.length && state.room_type.length && state.bed_type.length 
+            && state.bed_count.length && state.room_price.length && state.guest_capacity.length){
             props.showError(null);
             const formData = new FormData(); 
             formData.append( 
@@ -104,14 +129,17 @@ function RoomForm(props) {
                             'successMessage' : 'Add Successfully. Redirecting to home page..'
                         }))
                         redirectToRoomFacility(state.room_id);
-                        console.log(localStorage.getItem(ACCESS_TOKEN_NAME));
                         props.showError(null)
                     } else{
                         props.showError("Some error ocurred");
                     }
                 })
                 .catch(function (error) {
-                    console.log(error);
+                    if(error.response.status === 400){
+                        props.showError("Pastika semua input terisi dengan benar")
+                    } else {
+                        props.showError("Internal Server Error")
+                    }
                 });  
             } else if(props.type == "add"){
                 axios.post(API_BASE_URL+'/room/create', formData, { headers: { "Authorization": `Bearer ${localStorage.getItem(ACCESS_TOKEN_NAME)}`}})
@@ -134,10 +162,9 @@ function RoomForm(props) {
                     console.log(error);
                 });  
             }
-              
         } else {
-            props.showError('Error')    
-        }  
+            props.showError("Pastika semua input terisi degan benar");
+        }
     }
 
     const redirectToRoomFacility = (id) => {

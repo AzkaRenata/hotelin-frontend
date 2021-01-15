@@ -2,7 +2,7 @@ import React from 'react';
 import './AboutUs.css';
 import 'bootstrap/dist/css/bootstrap.css';
 
-export default function KamarDetails(){
+export default function AboutUs(){
     return(
         <div className="container">
             <section className="AboutUS.js" id="AboutUs">

@@ -64,7 +64,7 @@ function AddHotel(props) {
                 console.log(error);
             });    
     } else {
-        props.showError('Error')    
+        props.showError('Input Tidak Boleh Kosong')    
     }  
   }
 

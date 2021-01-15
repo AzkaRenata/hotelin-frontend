@@ -71,7 +71,7 @@ class RoomView extends Component {
                         </h6>
                         <h6><b>Check In: </b>{this.state.booking.check_in}</h6>
                         <h6><b>Check Out :</b> {this.state.booking.check_out}</h6>
-                        <h6><b>Lama Menginap :</b></h6>
+                        <h6><b>Lama Menginap :</b>{this.state.booking.days_count}</h6>
                         <h6><b>Tanggal Pemesanan :</b>{this.state.booking.booking_time}</h6>
                         <h6><b>Total Harga :</b> {this.state.booking.total_price}</h6>
                     </div>
