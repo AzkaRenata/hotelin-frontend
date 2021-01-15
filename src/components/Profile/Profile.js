@@ -52,8 +52,8 @@ function Profile(props) {
   return (
 <div className={`${state.display} wrapper`}>
     {!state.loading && 
-    <div className="">
-        <b><div className="header">Profile Hotel</div></b> 
+    <div className="margin-t-25">
+        <b><div className="profile-header margin-l-25">Profile Hotel</div></b> 
         <div className="KamarDetails-detail">
             {
                 state.dataHotel.map(item => item.hotel_picture != null ?

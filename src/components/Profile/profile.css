@@ -160,7 +160,7 @@ body{
   color: #717171;
 }
 
-.header{
+.profile-header{
     font-size: 26px;
     color: #131212;
     padding-bottom: 25px;
@@ -195,6 +195,12 @@ body{
 
 .margin-b-25{
   margin-bottom: 25px;
+}
+.margin-t-25{
+  margin-top: 25px;
+}
+.margin-l-25{
+  margin-left: 25px;
 }
 .title-row{
   padding-top: 20px;
