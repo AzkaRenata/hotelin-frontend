@@ -9,6 +9,9 @@
   text-decoration: none;
   font-family: 'Open Sans', sans-serif;
 }
+.profile-container {
+  padding: 25px 30px;
+}
 .show {
   display: block;
 }
@@ -151,8 +154,6 @@ body{
   margin-right: 20px;
 }
 
-
-
 .wrapper .main_content {
   padding: 20px;
   background: #fff;
@@ -161,8 +162,8 @@ body{
 
 .header{
     font-size: 26px;
-    padding: 20px 20px 20px 46px;
-    color: #717171;
+    color: #131212;
+    padding-bottom: 25px;
 }
 
 .wrapper .main_content .profile-info{
@@ -188,9 +189,12 @@ body{
 .col-11 {width: 91.66%;}
 .col-12 {width: 100%;}
 
-.padding-r-30{
-  padding-right: 25px;
-  margin-top: 25px;
+.margin-r-0{
+  margin-right: 0px;
+}
+
+.margin-b-25{
+  margin-bottom: 25px;
 }
 .title-row{
   padding-top: 20px;
@@ -212,6 +216,8 @@ button.edit-hotel-btn{
   text-align: center;
   font-size: 18px;
   float: right;
+  margin-right: 25px;
+  margin-bottom: 25px;
 }
 
 button.edit-hotel-btn:hover{

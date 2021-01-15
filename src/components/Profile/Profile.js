@@ -52,7 +52,7 @@ function Profile(props) {
   return (
 <div className={`${state.display} wrapper`}>
     {!state.loading && 
-    <div className=" main_content_left">
+    <div className="">
         <b><div className="header">Profile Hotel</div></b> 
         <div className="KamarDetails-detail">
             {
@@ -90,9 +90,7 @@ function Profile(props) {
     <div className=" main_content_right"> 
         <div className="profile-info">
             <div>
-                <div>
-                    <button type="button" className="button edit-hotel-btn" onClick={() => toEditProfile()}>Edit Profile</button>
-                </div>
+                <button type="button" className="button edit-hotel-btn" onClick={() => toEditProfile()}>Edit Profile</button>
                 <div className="card body mb-3">
                     <div className="main_content">
                         <b><p className="card-title">{state.dataHotel.map(item => item.hotel_name)}</p></b>

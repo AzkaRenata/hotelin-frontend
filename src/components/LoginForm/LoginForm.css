@@ -33,6 +33,22 @@ h6{
     padding-top: 10px;
 }
 
+a{
+    margin: 0 auto;
+}
+
+.col-lg-6{
+    margin: 0 auto;
+    text-align: center;
+}
+
+.download-img{
+    margin-top: 50px;
+    height: 60px;
+    width: 180px;
+    display: inline;
+}
+
 @media (max-width: 576px){
     .login100-form-title {
         font-size: 20px;

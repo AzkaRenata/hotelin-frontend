@@ -4,55 +4,57 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 export default function AboutUs(){
     return(
-        <div className="container">
+        <div className="container"> 
+        <b><div className="header">About Us</div></b>
             <section className="AboutUS.js" id="AboutUs">
-            <div className="row">
-                    <h5>Developer Team</h5>
+            <h5><b>Developer Team</b></h5>
+            <div className=" row aboutus-row">
                     <div className="member col-lg-2 col-md-4 col-xs-6">
-                        <div className="info">
-                            <img src="../../Sarah.png" className="rounded-circle img-thumbnail"></img>
+                        <div className="author">
+                            <img src="../../Sarah.jpeg" className="rounded-circle img-thumbnail"></img>
                             <p className="text-center">Sarah</p>         
                         </div>
                     </div>
 
                     <div className="member col-lg-2 col-md-4 col-xs-6">
-                        <div className="info">
-                            <img src="../../Mujir.png" className="rounded-circle img-thumbnail"></img>
+                        <div className="author">
+                            <img src="../../Mujir.jpg" className="rounded-circle img-thumbnail"></img>
                             <p className="text-center">Mujir</p>         
                         </div>
                     </div>
 
                     <div className="member col-lg-2 col-md-4 col-xs-6">
-                        <div className="info">
-                            <img src="../../Marisna.png" className="rounded-circle img-thumbnail"></img>
+                        <div className="author">
+                            <img src="../../Marisna.jpg" className="rounded-circle img-thumbnail"></img>
                             <p className="text-center">Marisna</p>         
                         </div>
                     </div>
 
                     <div className="member col-lg-2 col-md-4 col-xs-6">
-                        <div className="info">
-                            <img src="../../Adam.png" className="rounded-circle img-thumbnail"></img>
+                        <div className="author">
+                            <img src="../../Adam.jpeg" className="rounded-circle img-thumbnail"></img>
                             <p className="text-center">Adam</p>         
                         </div>
                     </div>
 
                     <div className="member col-lg-2 col-md-4 col-xs-6">
-                        <div className="info">
-                            <img src="../../Aziz.png" className="rounded-circle img-thumbnail"></img>
+                        <div className="author">
+                            <img src="../../Aziz.jpeg" className="rounded-circle img-thumbnail"></img>
                             <p className="text-center">Ajiz</p>         
                         </div>
                     </div>
 
                     <div className="member col-lg-2 col-md-4 col-xs-6">
-                        <div className="info">
-                            <img src="../../Irfan.png" className="rounded-circle img-thumbnail"></img>
+                        <div className="author">
+                            <img src="../../Irfan.jpeg" className="rounded-circle img-thumbnail"></img>
                             <p className="text-center">Irfan</p>         
                         </div>
                     </div>
                 </div>
 
-                <div className="row">
-                    <h5>Sponsored by</h5>
+                <h5><b>Sponsored by</b></h5>
+                <div className="row aboutus-row">
+                    
                     <div className="member col-lg-3 col-s-6">
                         <div className="info">
                             <img src="../../virtualhive.png" className="logo-img1"></img>
@@ -61,7 +63,7 @@ export default function AboutUs(){
 
                     <div className="member col-lg-3 col-s-6">
                         <div className="info">
-                            <img src="../../rasyidtechnology.png" className="logo-img1"></img>
+                            <img src="../../rasyidtechnologies.png" className="logo-img1"></img>
                         </div>
                     </div>
 
@@ -73,13 +75,14 @@ export default function AboutUs(){
 
                     <div className="member col-lg-3 col-s-6">
                         <div className="info">
-                            <img src="../../maulidan.png" className="logo-img1"></img>
+                            <img src="../../maulidangames.png" className="logo-img1"></img>
                         </div>
                     </div>
                 </div>
 
-                <div className="row">
-                    <h5>Supported by</h5>
+                <h5><b>Supported by</b></h5>
+                <div className="row aboutus-row">
+                    
                     <div className="member col-lg-2 col-s-6">
                         <div className="info">
                             <img src="../../sindika.png" className="logo-img3"></img>
@@ -111,8 +114,8 @@ export default function AboutUs(){
                     </div>
                 </div>
 
-                <div class="row">
-                    <h5>Supervisors and Mentors</h5>
+                <h5><b>Supervisors and Mentors</b></h5>
+                <div class="row aboutus-row">
                     <div class="member col-lg-6 col-s-6">
                         <div class="info">
                             <p class="text-center">Umi Sa'adah (Dosen Teknik Informatika PENS)</p>

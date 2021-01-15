@@ -18,7 +18,7 @@ export class DataKamar extends Component {
             offset: 0,
             tableData: [],
             orgtableData: [],
-            perPage: 5,
+            perPage: 10,
             currentPage: 0,
             alert: null,
             view: null
@@ -168,7 +168,7 @@ export class DataKamar extends Component {
                 <div className="col-10">
                     <div class="row title-row">
                         <div class="col-6">
-                            <h3 class="title">Daftar Kamar</h3>
+                            <h3 class="title header">Daftar Kamar</h3>
                         </div>
                         <div class="col-6">
                             <button class="add-room-btn" onClick={this.toAddKamar}>

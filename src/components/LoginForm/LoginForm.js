@@ -113,6 +113,21 @@ function LoginForm(props) {
             </div>
             </form>
             <h6 className="text-center fs-18">Belum Punya Akun ? <a className="fs-18" href="javascript:void(0)" onClick={() => redirectToRegister()}>Daftar</a></h6>
+            <div className="row">
+              <div className="col-lg-6">
+                <a href="#">
+                  <img src="../../download-desktop.png" className="download-img"></img>
+                </a>
+                
+              </div>
+
+              <div className="col-lg-6">
+                <a href="#">
+                  <img src="../../download-playstore.png" className="download-img"></img>
+                </a>
+              </div>
+
+            </div>
           </div>
         </div>
       </div>
