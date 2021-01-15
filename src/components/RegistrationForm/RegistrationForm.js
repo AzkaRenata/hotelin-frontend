@@ -11,6 +11,7 @@ import * as Yup from "yup";
 function RegistrationForm(props) {
     const validationSchema = Yup.object().shape({
         name: Yup.string().required("* required").max(30),
+        username: Yup.string().required("* required").max(30),
         email: Yup.string().required("* required").email("* email must be a valid email"),
         password: Yup.string().required("* required").min(8)
                     .matches(/\w*[a-z]\w*/, "Password must have small character")
@@ -25,6 +26,7 @@ function RegistrationForm(props) {
     const{ handleSubmit, handleChange, handleBlur, values, errors, touched, isValid } = useFormik({
         initialValues:{
             name : "",
+            username: "",
             email : "",
             password : "",
             password_confirmation: ""
@@ -47,6 +49,10 @@ function RegistrationForm(props) {
         formData.append( 
             "name", 
             values.name
+        ); 
+        formData.append( 
+            "username", 
+            values.username
         ); 
         formData.append( 
             "email", 
@@ -74,7 +80,7 @@ function RegistrationForm(props) {
             })
             .catch(function (error) {
                 if(error.response.status === 400){
-                    props.showError("Ada Input Data Yang Salah")
+                    props.showError("Email Sudah Digunakan")
                 } else {
                     props.showError("Internal Server Error")
                 }
@@ -119,6 +125,13 @@ function RegistrationForm(props) {
                         <span className="focus-input100"></span>
                         </div>
                         <span className="error-message">{touched.name && errors.name ? errors.name : null}</span>
+
+                        <div className="wrap-input100 validate-input" data-validate="Username is required">
+                        <input className="input100" type="text" name="username" placeholder="Username..."
+                        id="username" value={values.username} onChange={handleChange} onBlur={handleBlur} />
+                        <span className="focus-input100"></span>
+                        </div>
+                        <span className="error-message">{touched.username && errors.username ? errors.username : null}</span>
 
                         <div className="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
                         <input className="input100" type="text" name="email" placeholder="Email addess..." 

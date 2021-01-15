@@ -44,7 +44,7 @@ function LoginForm(props) {
                   }
             })
             .catch(function (error) {
-              console.log(error);
+              console.log(error.response);
               if(error.response.status === 400){
                   props.showError("Username/Email Tidak Ditemukan");
               }

@@ -10,6 +10,7 @@ import Pemesanan from './components/Pemesanan/Pemesanan';
 import DataKamar from './components/DataKamar/DataKamar';
 import FasilitasKamar from './components/FasilitasKamar/FasilitasKamar';
 import Profile from './components/Profile/Profile';
+import AboutUs from './components/AboutUs/AboutUs';
 import PrivateRoute from './utils/PrivateRoute';
 import {
   BrowserRouter as Router,
@@ -76,6 +77,9 @@ function App() {
               </PrivateRoute>
               <PrivateRoute path="/home/cancel-booking">
                 <Pemesanan status="3" title="Riwayat Pembatalan"/>
+              </PrivateRoute>
+              <PrivateRoute path="/home/about-us">
+                <AboutUs activeMenu={activeMenu} setMenu={updateMenu}/>
               </PrivateRoute>
               <PrivateRoute path="/home/logout">
                 
