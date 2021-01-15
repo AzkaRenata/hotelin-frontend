@@ -4,11 +4,12 @@ import { withRouter } from 'react-router-dom';
 import { ACCESS_TOKEN_NAME, API_BASE_URL } from '../../constants/apiContants';
 import axios from 'axios'
 import {IMAGE_URL} from '../../constants/apiContants';
+import {Button, Form, Label, Input, FormGroup, Container, Row, Col} from 'reactstrap';
 
 function Profile(props) {
     
     const [state , setHotel] = useState({
-        dataHotel: {},
+        dataHotel: [],
         dataRoom: [],
         hotelFacility: [],
         isLoading: true,
@@ -26,11 +27,8 @@ function Profile(props) {
                 loading: false,
                 display: "show"
             })
-            console.log("Response profile : "+response.hotel)
+            console.log("Response profile : "+response.data.hotel.map(item => item.hotel_name))
         })
-        for(var i=0; i<5; i++){
-            setStar(<i className="fas fa-star color-icon"></i>);
-        }
     })
 
     const [stars, setStar] = useState([]);
@@ -55,16 +53,16 @@ function Profile(props) {
 <div className={`${state.display} wrapper`}>
     <div className="row">
     {!state.loading && 
-    <div className="col-lg-6">
-        <b><div className="header">Profile Hotel</div></b> 
+    <div className="margin-t-25">
+        <b><div className="profile-header margin-l-25">Profile Hotel</div></b> 
         <div className="KamarDetails-detail">
             {
-                state.dataHotel.hotel_picture != null ?
-                    <img src={IMAGE_URL + state.dataHotel.hotel_picture} id="CV" className="hotel-image"/>
-                    :
-                    <img src="../../no_image.png" id="CV" className="hotel-image"/> 
+                state.dataHotel.map(item => item.hotel_picture != null ?
+                <img src={IMAGE_URL + item.hotel_picture} id="CV" className="hotel-image"/>
+                :
+                <img src="../../no_image.png" id="CV" className="hotel-image"/> 
                 
-            }
+            )}
             {
                 state.dataRoom.length != 0 ?
                 <div className="galleryItem">
@@ -90,49 +88,48 @@ function Profile(props) {
     </div>
     }
     {!state.loading && 
-    <div className="col-lg-6"> 
-        <div className="info">
-            <div className="text-right padding p-r-20">
-                <b>
-                <button type="button" className="button" onClick={() => toEditProfile()}>Edit Profile</button>
-                </b>
-            </div>
-            <div className="card body mb-3">
-                <div className="card-body main_content">
-                    <b><p className="card-title title">{state.dataHotel.hotel_name}</p></b>
-                    <i className="fas fa-map-marker-alt card-text"> {state.dataHotel.hotel_location} </i><br></br>
-                  
-                    {
-                        stars
-                    }
-                    <br />
-                    <b>{
-                    Math.floor(state.dataHotel.hotel_rating*100/100) != 0 ?
-                    Math.floor(state.dataHotel.hotel_rating*100/100)
-                        :
-                    " No Rating "
-                    }</b> 
-                    <br></br>
-                    <b>
-                        <p className="card-text color-price">{state.dataHotel.hotel_price
-                        != null ?
-                        "Rp. "+state.dataHotel.hotel_price : "0"
-                        }
-                        </p>
-                    </b>
-                        <b><p className="card-title">About Hotel</p></b>
-                        <p className="card-text">{state.dataHotel.hotel_desc}</p>
-                        {  
-                            state.dataRoom.length != 0 ?
-                                <div>
-                                <b><p className="card-title">Fasilitas</p></b>
-                                {state.hotelFacility.map(item => 
-                                    <i className={"fas card-title padding-icon "+item.facility_icon}><a>&nbsp;&nbsp;{item.facility_name}&nbsp;&nbsp;</a></i>
-                                )}
-                                </div>
+    <div className=" main_content_right"> 
+        <div className="profile-info">
+            <div>
+                <button type="button" className="button edit-hotel-btn" onClick={() => toEditProfile()}>Edit Profile</button>
+                <div className="card body mb-3">
+                    <div className="main_content">
+                        <b><p className="card-title">{state.dataHotel.map(item => item.hotel_name)}</p></b>
+                        <i className="fas fa-map-marker-alt card-text"> {state.dataHotel.map(item => item.hotel_location)} </i><br></br>
+                        <i className="fas fa-star color-icon-dark card-text"></i>
+                        <i className="fas fa-star color-icon-dark card-text"></i>
+                        <i className="fas fa-star color-icon-dark card-text"></i>
+                        <i className="fas fa-star color-icon-dark card-text"></i>
+                        <i className="fas fa-star color-icon-dark card-text"></i>
+                        <br />
+                        <b className="card-text">{
+                        state.dataHotel.map(item => item.hotel_rating*100/100 != 0 ?
+                        Math.floor(item.hotel_rating*100/100)
                             :
-                                <a href="#" onClick={toTambahKamar}>Tambah Data Kamar</a>
-                        }
+                        " No Rating "
+                        )}</b> 
+                        <br></br>
+                        <b>
+                            <p className="card-title color-price">{state.dataHotel.map(item => item.hotel_price
+                            != null ?
+                            "Rp. "+item.hotel_price : "0"
+                            )}
+                            </p>
+                        </b>
+                            <b><p className="card-title-md">About Hotel</p></b>
+                            <p className="card-text">{state.dataHotel.map(item => item.hotel_desc)}</p>
+                            {  
+                                state.dataRoom.length != 0 ?
+                                    <div>
+                                    <b><p className="card-title-md">Fasilitas</p></b>
+                                    {state.hotelFacility.map(item => 
+                                        <i className={"fas card-title padding-icon "+item.facility_icon}><a>&nbsp;&nbsp;{item.facility_name}&nbsp;&nbsp;</a></i>
+                                    )}
+                                    </div>
+                                :
+                                    <a href="#" onClick={toTambahKamar}>Tambah Data Kamar</a>
+                            }
+                    </div>
                 </div>
             </div>
       </div>

@@ -44,7 +44,7 @@ function LoginForm(props) {
                   }
             })
             .catch(function (error) {
-              console.log(error);
+              console.log(error.response);
               if(error.response.status === 400){
                   props.showError("Username/Email Tidak Ditemukan");
               }
@@ -136,17 +136,16 @@ function LoginForm(props) {
             </div>
             </form>
             <h6 className="text-center fs-18">Belum Punya Akun ? <a className="fs-18" href="javascript:void(0)" onClick={() => redirectToRegister()}>Daftar</a></h6>
-          
             <div className="row">
               <div className="col-lg-6">
-                <a href="#">
+                <a href="intip.in/hotelin-dekstop">
                   <img src="../../download-desktop.png" className="download-img"></img>
                 </a>
                 
               </div>
 
               <div className="col-lg-6">
-                <a href="#">
+                <a href="intip.in/hotelin-android">
                   <img src="../../download-playstore.png" className="download-img"></img>
                 </a>
               </div>

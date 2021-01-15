@@ -2,46 +2,63 @@ body{
     background: white;
 }
 
-.aboutus{
-    margin-top: 50px;
-    padding: 10px;
-}
-
 .aboutus h5{
     text-align: center;
     padding: 20px;
     margin-bottom: 30px;
 }
 
+h5{
+    text-align: center;
+    color: #5399af;
+}
+
 .info{
     position: relative;
+    max-width: 100%;
 }
 
 .info img{
-    margin-bottom: 50px;
+    margin-bottom: 10px;
 }
 
 .info .logo-img1{
     height: 80%;
     width: 80%;
-    max-width: 300px;
-    max-height: 40px;
+    max-width: 450px;
+    max-height: 60px;
 }
 
 .info .logo-img2{
     height: 80%;
     width: 80%;
-    max-width: 60px;
-    max-height: 40px;
+    max-width: 90px;
+    max-height: 60px;
 }
 
 .info .logo-img3{
     height: 80%;
     width: 80%;
-    max-width: 50px;
-    max-height: 40px;
+    max-width: 75px;
+    max-height: 60px;
+}
+
+.author p{
+    font-size: 18px;
+    font-weight: bold;
 }
 
 .info p{
     font-size: 13px;
+}
+
+.aboutus-row{
+    margin: 40px;
+    text-align: center;
+}
+
+.header{
+    font-size: 26px;
+    padding: 20px 20px 20px 46px;
+    color: #717171;
 }
