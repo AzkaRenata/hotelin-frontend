@@ -51,6 +51,7 @@ function Profile(props) {
     
   return (
 <div className={`${state.display} wrapper`}>
+    <div className="row">
     {!state.loading && 
     <div className="margin-t-25">
         <b><div className="profile-header margin-l-25">Profile Hotel</div></b> 
@@ -134,6 +135,7 @@ function Profile(props) {
       </div>
     </div>
     }
+    </div>
 </div>
  );
 }

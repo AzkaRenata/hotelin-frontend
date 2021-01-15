@@ -64,6 +64,29 @@ function LoginForm(props) {
         props.setMenu('Register');
     }
 
+    /*const styles = StyleSheet.create({
+      image: {
+    
+      },
+      touchable: {
+        alignItems: 'center',
+        justifyContent: 'center'
+      },
+      text: {
+        color: colors.button,
+        fontSize: 18,
+        textAlign: 'center'
+      }
+    })
+
+    <div className="download">
+              <TouchableOpacity style={styles.touchable}>
+                 <Image source={images.button} style={styles.image} />
+              </TouchableOpacity>
+            </div>
+    
+    */
+
     return(
       <div className="limiter">
         <div className="container-login100">
