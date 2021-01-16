@@ -63,6 +63,12 @@ function LoginForm(props) {
         props.history.push('/register'); 
         props.setMenu('Register');
     }
+    const redirectToHotelinAndroid = () => {
+        props.history.push('/hotelin-android'); 
+    }
+    const redirectToHotelinDekstop = () => {
+        props.history.push('/hotelin-dekstop'); 
+    }
 
     /*const styles = StyleSheet.create({
       image: {
@@ -138,14 +144,14 @@ function LoginForm(props) {
             <h6 className="text-center fs-18">Belum Punya Akun ? <a className="fs-18" href="javascript:void(0)" onClick={() => redirectToRegister()}>Daftar</a></h6>
             <div className="row">
               <div className="col-lg-6">
-                <a href="intip.in/hotelin-dekstop">
+                <a href="#" onClick={() => redirectToHotelinDekstop()} >
                   <img src="../../download-desktop.png" className="download-img"></img>
                 </a>
                 
               </div>
 
               <div className="col-lg-6">
-                <a href="intip.in/hotelin-android">
+                <a href="#" onClick={() => redirectToHotelinAndroid()} >
                   <img src="../../download-playstore.png" className="download-img"></img>
                 </a>
               </div>
