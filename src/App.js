@@ -39,8 +39,8 @@ function App() {
           <Route path="/login">
             <LoginForm showError={updateErrorMessage} setMenu={updateMenu}/>
           </Route>
-          <Route exact path="/hotelin-android" render={() => (window.location = "https://intip.in/hotelin-android")} />
-          <Route exact path="/hotelin-dekstop" render={() => (window.location = "https://intip.in/hotelin-dekstop")} />
+          <Route exact path="/hotelin-android" render={() => (window.location = "https://intip.in/hotelinAndroid")} />
+          <Route exact path="/hotelin-dekstop" render={() => (window.location = "https://intip.in/hotelinDekstop")} />
 
           <div>
             <PrivateRoute path="/home">
