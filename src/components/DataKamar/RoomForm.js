@@ -71,7 +71,7 @@ function RoomForm(props) {
                     console.log(response.data);
                 })
                 .catch(function (error) {
-                    props.showError(error);
+                    props.showError("Error");
                 });
         }
     }, [])

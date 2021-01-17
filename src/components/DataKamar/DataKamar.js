@@ -49,12 +49,12 @@ export class DataKamar extends Component {
                 cancelBtnText="Cancel"
                 confirmBtnBsStyle="default"
                 cancelBtnBsStyle="danger"
-                title="Wait ..."
+                title="Tunggu ..."
                 onConfirm={() => this.deleteItem(id)}
                 onCancel={() => this.hideAlert()}
                 focusCancelBtn
                 >
-                Are you sure want to delete?
+                Apakah yakin mau delete?
             </SweetAlert>
         );
         this.setState({
@@ -96,9 +96,9 @@ export class DataKamar extends Component {
                 onConfirm={() => this.onSuccess() }
                 onCancel={this.hideAlert()}
                 timeout={2000}
-                confirmBtnText="Oke Siap"
+                confirmBtnText="OKE"
                 >
-                Deleted booking successfully
+                Delete Kamar Berhasil
             </SweetAlert>
         );
         this.setState({
