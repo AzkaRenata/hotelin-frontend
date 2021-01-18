@@ -9,6 +9,7 @@ class RoomView extends Component {
         this.state = {
             room_data: {}
         }
+        this.editRoom = this.editRoom.bind(this);
     }
 
     componentDidMount () {
@@ -22,10 +23,10 @@ class RoomView extends Component {
         })
     }
 
-    // editRoom(id){
-    //     this.props.onCancel();
-    //     this.props.history.push(`/home/kamar/edit/${id}`);
-    // }
+    editRoom(){
+        const id = this.props.room_id;
+        this.props.history.push(`/home/kamar/edit/${id}`);
+    }
     render () {
     const { room_data } = this.state
 console.log("cek : "+room_data.room_type);
@@ -59,7 +60,7 @@ console.log("cek : "+room_data.room_type);
                     </div>
                     <div className="modal-footer">
                         <button type="button" onClick={this.props.onCancel} className="btn btn-secondary">Close</button>
-                        <Link type="button" className="btn btn-primary">Edit</Link>
+                        <Link type="button" onClick={this.editRoom} className="btn btn-primary">Edit</Link>
                     </div>
                 </div>
             </div>

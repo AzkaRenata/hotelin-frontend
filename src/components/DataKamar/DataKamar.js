@@ -9,6 +9,8 @@ import {API_BASE_URL, ACCESS_TOKEN_NAME} from '../../constants/apiContants';
 import { withRouter, Link } from "react-router-dom";
 import SweetAlert from 'react-bootstrap-sweetalert';
 import RoomView from './RoomView';
+import useFullPageLoader from '../hooks/useFullPageLoader';
+
 export class DataKamar extends Component {
 
     constructor(props) {
@@ -142,6 +144,7 @@ export class DataKamar extends Component {
     componentDidMount() {
         this.getData();
     }
+
     getData() {
         axios
             .get(API_BASE_URL+'/room/list', { headers: { "Authorization": `Bearer ${localStorage.getItem(ACCESS_TOKEN_NAME)}`}})
@@ -225,4 +228,4 @@ export class DataKamar extends Component {
     }
 }
 
-export default withRouter(DataKamar);
+export default withRouter(DataKamar);	

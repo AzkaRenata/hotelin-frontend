@@ -64,10 +64,10 @@ function LoginForm(props) {
         props.setMenu('Register');
     }
     const redirectToHotelinAndroid = () => {
-        props.history.push('/hotelin-android'); 
+      window.open("https://drive.google.com/file/d/1xr7K0RrfA43M77s9qLZyPfklrY6eUD7d/view", "_blank");
     }
     const redirectToHotelinDekstop = () => {
-        props.history.push('/hotelin-dekstop'); 
+      window.open("https://drive.google.com/file/d/1PmlO9_fMgmG6Bmdiz64NU7ILRpz6_GuY/view","_blank");
     }
 
     /*const styles = StyleSheet.create({

@@ -5,6 +5,7 @@ import { ACCESS_TOKEN_NAME, API_BASE_URL } from '../../constants/apiContants';
 import axios from 'axios'
 import {IMAGE_URL} from '../../constants/apiContants';
 import {Button, Form, Label, Input, FormGroup, Container, Row, Col} from 'reactstrap';
+import useFullPageLoader from '../hooks/useFullPageLoader';
 
 function Profile(props) {
     
@@ -12,12 +13,14 @@ function Profile(props) {
         dataHotel: [],
         dataRoom: [],
         hotelFacility: [],
-        isLoading: true,
+        loading: true,
         display: "hide"
     });
-    
+
+    const [loader, showLoader, hideLoader] = useFullPageLoader();
+
     const fetchHotel = React.useCallback(() => {
-        
+        showLoader();
         axios.get(API_BASE_URL+'/hotel/profile', { headers: { "Authorization": `Bearer ${localStorage.getItem(ACCESS_TOKEN_NAME)}`}})
         .then(response => {
             setHotel({
@@ -27,6 +30,7 @@ function Profile(props) {
                 loading: false,
                 display: "show"
             })
+            hideLoader();
             console.log("Response profile : "+response.data.hotel.map(item => item.hotel_name))
         })
     })
@@ -51,8 +55,9 @@ function Profile(props) {
     
   return (
 <div className={`${state.display} wrapper`}>
+    {loader}
     {!state.loading && 
-    <div className="margin-t-25">
+    (<div className="margin-t-25">
         <b><div className="profile-header margin-l-25">Profile Hotel</div></b> 
         <div className="KamarDetails-detail">
             {
@@ -85,9 +90,9 @@ function Profile(props) {
             } 
         </div>
     </div>
-    }
+    )}
     {!state.loading && 
-    <div className=" main_content_right"> 
+    (<div className=" main_content_right"> 
         <div className="profile-info">
             <div>
                 <button type="button" className="button edit-hotel-btn" onClick={() => toEditProfile()}>Edit Profile</button>
@@ -133,7 +138,7 @@ function Profile(props) {
             </div>
       </div>
     </div>
-    }
+    )}
     </div>
  );
 }

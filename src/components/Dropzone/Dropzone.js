@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {useDropzone} from 'react-dropzone';
 import { withRouter } from 'react-router-dom';
+import {FRONT_BASE_URL} from '../../constants/apiContants';
 
 const outerContainer = {
   margin: '40px 0px',
@@ -95,7 +96,7 @@ function Preview(props) {
           <input {...getInputProps()} />
           {isDragAccept ?
           <p>Drop the files here ...</p> :
-          <img src="../../down-arrow.png" className="upload-image"></img>
+          <img src={FRONT_BASE_URL+"/down-arrow.png"} className="upload-image"></img>
           }
         </div>
         <aside style={thumbsContainer}>
